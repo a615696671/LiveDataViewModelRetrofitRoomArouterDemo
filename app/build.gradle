@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.alibaba.arouter'
+// 注意：主App中请确保添加aspectjx
+apply plugin: 'android-aspectjx'
+
+
+android {
+
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
+        multiDexEnabled true
+        flavorDimensions "versionCode"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+    }
+    //在apk文件后边生成版本号信息
+//    android.applicationVariants.all {
+////        variant ->
+////            variant.outputs.all {
+////                outputFileName = "${rootProject.ext.android.apkname}_v${variant.versionName}.apk"
+////            }
+////    }
+
+    signingConfigs {
+        release {
+            keyAlias 'medical'
+            keyPassword 'medical'
+            storeFile file("$rootDir/medical_app.jks")
+            storePassword 'medical'
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    buildTypes {
+        //调试版本，无混淆
+        debug {
+            signingConfig signingConfigs.release
+        }
+        //发布版本，无混淆
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0-beta01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-beta01'
+    implementation project(':commonlibrary')
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
+    implementation project(':testmodule')
+    implementation("androidx.arch.core:core-runtime:2.0.1")
+}

@@ -1,0 +1,90 @@
+//ext{
+//
+//    android=[
+//            apkname:"property",
+//            buildToolsVersion:'27.0.3',
+//            testInstrumentationRunner:"android.support.test.runner.AndroidJUnitRunner",
+//            compileSdkVersion:26,
+//            minSdkVersion:14,
+//            targetSdkVersion:26,
+//            versionCode:1,
+//            versionName :"1.0",
+//            testInstrumentationRunner:"android.support.test.runner.AndroidJUnitRunner",
+//            multiDexEnabled:true,
+//            flavorDimensions:"versionCode",
+//            applicationId:'com.xiwang.property.management',
+//            applicationIdDevelop:'com.xiwang.property.management.develop',
+//            applicationIdCheck:'com.xiwang.property.management.c',
+//            minifyEnabled:true,
+//            zipAlignEnabled:true,
+//            shrinkResources:true,
+//            checkReleaseBuilds:false,
+//            abortOnError:false,
+//            dirs:'libs',
+//            dexOptions:"4g"
+//
+//    ]
+//    keyId=[
+//            app_name: "@string/app_name3",
+//            app_icon: "@mipmap/app_icon",
+//            app_icon_round:"@mipmap/app_icon_round",
+//            YUNBA_APPKEY:"5ac2faf5145f1a7877f389d4",
+//            XIAOMI_APPKEY:"\\ 5481784649362",
+//            XIAOMI_APPID:"\\ 2882303761517846362",
+//            MAP_KEY_VALUE:"0e27da956884c8b6bc05e26fdf9ebcbf",
+//            MobAppKey:"252ef4c0d1d46",
+//            MobAppSecret:"47cc5e8c270527c6682bbe09c919897b",
+//            shareline:"line.110676707",
+//            tencent:"tencent1106767077"
+//    ]
+//    sourceSetting=[
+//            'src/main/res/layouts/activity',
+//            'src/main/res/layouts/adapter',
+//            'src/main/res/layouts/dailog',
+//            'src/main/res/layouts/fragment',
+//            'src/main/res/layouts/other',
+//            'src/main/res/layouts/view',
+//            'src/main/res/layouts',
+//            'src/main/res'
+//    ]
+//
+//    dependencies = [
+//            "appcompatV7"     :  'com.android.support:appcompat-v7:26.1.0',
+//            "supportDesign"   : 'com.android.support:design:26.1.0',
+//            "constraintLayout": 'com.android.support.constraint:constraint-layout:1.0.2',
+//            "gson"             : 'com.google.code.gson:gson:2.8.0',
+//            "butterknife"      : 'com.jakewharton:butterknife:8.8.1',
+//
+//            "annotationProcessor":'com.jakewharton:butterknife-compiler:8.8.1',
+//            "testImplementation": 'junit:junit:4.12',
+//            "androidTestImplementation":'com.android.support.test:runner:1.0.1',
+//            "androidTestImplementation": 'com.android.support.test.espresso:espresso-core:3.0.1',
+//            "gridpagersnaphelper":  'com.hhl:gridpagersnaphelper:1.0.0',
+//            // Optional , config indicator
+//            "recyclerviewindicator": 'com.hhl:recyclerviewindicator:1.0.0',
+//            "photoview" :'com.github.chrisbanes.photoview:library:1.2.4',
+//            "MultiStateView": 'com.github.Kennyc1012:MultiStateView:1.3.2',
+//            "cardview":'com.android.support:cardview-v7:26.1.0',
+//            "leakcanary":'com.squareup.leakcanary:leakcanary-android:1.5.4',
+//            "glide":  'com.github.bumptech.glide:glide:4.0.0',
+//            "eventBus": 'org.greenrobot:eventbus:3.0.0',
+//            "wxPay":'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+',
+//            "SuspensionIndexBar":'com.github.mcxtzhang:SuspensionIndexBar:V1.0.0',
+//            "walle": 'com.meituan.android.walle:library:1.0.3',
+//            "multidex":'com.android.support:multidex:1.0.1',
+//            "avi": 'com.wang.avi:library:2.1.0',
+//            "retrofit"  : 'com.squareup.retrofit2:retrofit:2.2.0',
+//            "retrofit2Converter" : 'com.squareup.retrofit2:converter-gson:2.3.0',
+//            "retrofit2ConverterScalars" : 'com.squareup.retrofit2:converter-scalars:2.3.0',
+//            "adapterRxjava"   : 'com.squareup.retrofit2:adapter-rxjava:2.+',
+//            "okhttp3Interceptor":'com.squareup.okhttp3:logging-interceptor:3.6.0',
+//            //ConverterFactory的String依赖包
+//            "okhttp3": 'com.squareup.okhttp3:okhttp:3.8.0',
+//            "msgpack":'org.msgpack:msgpack:0.6.12',
+//            "async": 'com.loopj.android:android-async-http:1.4.6',
+//            "recyclerview":'com.android.support:recyclerview-v7:26.1.0',
+//
+//
+//            "recyclerviewAdapter": 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+//    ]
+//}

@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="MyDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@color/common_bg_translucent</item><!--背景透明-->
+    </style>
+
+
+
+</resources>

@@ -1,0 +1,55 @@
+   productFlavors {
+        //开发环境
+//        develop {
+//            buildConfigField "int", "ENV_TYPE", "3"
+//            applicationId rootProject.ext.android.applicationIdDevelop
+//            manifestPlaceholders =[
+//                    app_name:  rootProject.ext.keyId.app_name,
+//                    app_icon:  rootProject.ext.keyId.app_icon,
+//                    YUNBA_APPKEY: rootProject.ext.keyId.YUNBA_APPKEY,
+//                    XIAOMI_APPKEY: rootProject.ext.keyId.XIAOMI_APPKEY,
+//                    XIAOMI_APPID: rootProject.ext.keyId.XIAOMI_APPID,
+//                    MAP_KEY_VALUE:rootProject.ext.keyId.MAP_KEY_VALUE,
+//                    MobAppKey: rootProject.ext.keyId.MobAppKey,
+//                    MobAppSecret: rootProject.ext.keyId.MobAppSecret,
+//                    shareline: rootProject.ext.keyId.shareline,
+//                    tencent: rootProject.ext.keyId.tencent
+//            ]
+//        }
+        //测试环境
+//        check {
+//            buildConfigField "int", "ENV_TYPE", "3"
+//            applicationId rootProject.ext.android.applicationIdCheck
+//            manifestPlaceholders ==[
+//                    //线下推送有专门的key 和id这里没有做替换
+//                    app_name:  rootProject.ext.keyId.app_name,
+//                    app_icon:  rootProject.ext.keyId.app_icon,
+//                    YUNBA_APPKEY: rootProject.ext.keyId.YUNBA_APPKEY,
+//                    XIAOMI_APPKEY: rootProject.ext.keyId.XIAOMI_APPKEY,
+//                    XIAOMI_APPID: rootProject.ext.keyId.XIAOMI_APPID,
+//                    MAP_KEY_VALUE:rootProject.ext.keyId.MAP_KEY_VALUE,
+//                    MobAppKey: rootProject.ext.keyId.MobAppKey,
+//                    MobAppSecret: rootProject.ext.keyId.MobAppSecret,
+//                    shareline: rootProject.ext.keyId.shareline,
+//                    tencent: rootProject.ext.keyId.tencent
+//            ]
+//        }
+        //生产环境
+        product {
+            buildConfigField "int", "ENV_TYPE", "3"
+            applicationId rootProject.ext.android.applicationId
+            manifestPlaceholders =[
+                    app_name:  rootProject.ext.keyId.app_name,
+                    app_icon:  rootProject.ext.keyId.app_icon,
+                    app_icon_round:rootProject.ext.keyId.app_icon_round,
+                    YUNBA_APPKEY: rootProject.ext.keyId.YUNBA_APPKEY,
+                    XIAOMI_APPKEY: rootProject.ext.keyId.XIAOMI_APPKEY,
+                    XIAOMI_APPID: rootProject.ext.keyId.XIAOMI_APPID,
+                    MAP_KEY_VALUE:rootProject.ext.keyId.MAP_KEY_VALUE,
+                    MobAppKey: rootProject.ext.keyId.MobAppKey,
+                    MobAppSecret: rootProject.ext.keyId.MobAppSecret,
+                    shareline: rootProject.ext.keyId.shareline,
+                    tencent: rootProject.ext.keyId.tencent
+            ]
+        }
+    }
