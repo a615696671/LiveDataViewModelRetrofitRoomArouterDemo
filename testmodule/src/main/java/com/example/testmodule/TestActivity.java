@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.commonlibrary.ArouterConstant;
+import com.example.commonlibrary.NetDataUtils;
 import com.example.commonlibrary.http.BaseBean;
 
 
@@ -22,5 +23,6 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         loginViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
+
     }
 }

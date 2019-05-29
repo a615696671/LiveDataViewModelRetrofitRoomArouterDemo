@@ -1,6 +1,8 @@
 package com.example.testmodule;
 
-public class LoginParams {
+import com.example.commonlibrary.BaseRequestParams;
+
+public class LoginParams  implements BaseRequestParams {
     private String phone;
     private String password;
 

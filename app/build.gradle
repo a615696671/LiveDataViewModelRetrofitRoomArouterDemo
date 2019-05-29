@@ -2,7 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.alibaba.arouter'
 // 注意：主App中请确保添加aspectjx
 apply plugin: 'android-aspectjx'
-
+////注：需要配置符号表时，使用bugly插件
+apply plugin: 'bugly'
 
 android {
 
@@ -11,8 +12,8 @@ android {
         applicationId "com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
         multiDexEnabled true
@@ -22,6 +23,7 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
             }
         }
+
     }
     //在apk文件后边生成版本号信息
 //    android.applicationVariants.all {
@@ -33,10 +35,10 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'medical'
-            keyPassword 'medical'
-            storeFile file("$rootDir/medical_app.jks")
-            storePassword 'medical'
+            keyAlias 'currency'
+            keyPassword 'currency'
+            storeFile file("$rootDir/currency.jks")
+            storePassword 'currency'
         }
     }
     dexOptions {
@@ -49,9 +51,9 @@ android {
         }
         //发布版本，无混淆
         release {
-            minifyEnabled true
-            zipAlignEnabled true
-            shrinkResources true
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -69,5 +71,6 @@ dependencies {
     implementation project(':commonlibrary')
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
     implementation project(':testmodule')
-    implementation("androidx.arch.core:core-runtime:2.0.1")
+    implementation 'androidx.arch.core:core-runtime:2.0.1'
+    implementation project(':bugly')
 }
