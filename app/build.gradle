@@ -34,12 +34,6 @@ android {
                 outputFileName = "${rootProject.ext.android.apkname}_v${variant.versionName}.apk"
             }
     }
-    sourceSets {
-        main {
-            res.srcDirs =  rootProject.ext.sourceSetting
-            jniLibs.srcDirs = []
-        }
-    }
     signingConfigs {
         release {
             keyAlias 'currency'
@@ -64,10 +58,10 @@ android {
         }
     }
 
-    lintOptions {
-        checkReleaseBuilds rootProject.ext.android.checkReleaseBuilds
-        abortOnError rootProject.ext.android.abortOnError
-    }
+//    lintOptions {
+//        checkReleaseBuilds rootProject.ext.android.checkReleaseBuilds
+//        abortOnError rootProject.ext.android.abortOnError
+//    }
 
 
     productFlavors {
@@ -95,8 +89,9 @@ dependencies {
     androidTestImplementation   rootProject.ext.dependencies.runner
     androidTestImplementation   rootProject.ext.dependencies.espresso
     annotationProcessor rootProject.ext.dependencies.arouterCompiler
-    implementation project(':commonlibrary')
-    implementation project(':testmodule')
-    implementation project(':bugly')
+    implementation rootProject.ext.dependencies.appcompat
+    api project(':commonlibrary')
+    api project(':testmodule')
+    api project(':bugly')
 }
 

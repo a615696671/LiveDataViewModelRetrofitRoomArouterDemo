@@ -1,0 +1,9 @@
+    <com.java.demo.multistateview.MultiStateView
+        android:id="@+id/mMultiStateView"
+        android:clipToPadding="false"
+        app:msv_emptyView="@layout/property_message_empty_view_layout"
+        app:msv_errorView="@layout/property_error_view_layout"
+        app:msv_loadingView="@layout/property_loading_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+     </com.java.demo.multistateview.MultiStateView>
