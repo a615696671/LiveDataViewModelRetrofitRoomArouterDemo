@@ -19,3 +19,44 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+#Arouter
+ -keep public class com.alibaba.android.arouter.routes.**{*;}
+
+
+
+ #RxJava混淆
+ -keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+  long producerIndex;
+  long consumerIndex;
+ }
+ -keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+  rx.internal.util.atomic.LinkedQueueNode producerNode;
+ }
+ -keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+  rx.internal.util.atomic.LinkedQueueNode consumerNode;
+ }
+ # OkHttp3
+ -dontwarn com.squareup.okhttp3.**
+ -keep class com.squareup.okhttp3.** { *;}
+ -dontwarn okio.**
+
+ # Okio
+ -dontwarn com.squareup.**
+ -dontwarn okio.**
+ -keep public class org.codehaus.* { *; }
+ -keep public class java.nio.* { *; }
+
+ # Retrofit
+ -dontwarn retrofit2.**
+ -keep class retrofit2.** { *; }
+ -keepattributes Exceptions
+
+
+ # Only required if you use AsyncExecutor
+ -keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
+     <init>(java.lang.Throwable);
+ }
+ # gson
+ -dontwarn com.google.**
+ -keep class com.google.gson.** {*;}
+ -keep class com.google.protobuf.** {*;}

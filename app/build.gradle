@@ -90,8 +90,6 @@ dependencies {
     androidTestImplementation   rootProject.ext.dependencies.espresso
     annotationProcessor rootProject.ext.dependencies.arouterCompiler
     implementation rootProject.ext.dependencies.appcompat
-    api project(':commonlibrary')
     api project(':testmodule')
-    api project(':bugly')
 }
 
