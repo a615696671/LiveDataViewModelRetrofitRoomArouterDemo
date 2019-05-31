@@ -1,0 +1,121 @@
+ext{
+
+        android=[
+            apkname:"测试工具",
+            versionCode:1,
+            versionName :"1.0",
+            multiDexEnabled:true,
+            buildToolsVersion:'27.0.3',
+            testInstrumentationRunner:"android.support.test.runner.AndroidJUnitRunner",
+            compileSdkVersion:26,
+            minSdkVersion:15,
+            targetSdkVersion:26,
+            testInstrumentationRunner:"android.support.test.runner.AndroidJUnitRunner",
+            flavorDimensions:"versionCode",
+            applicationId:'com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo',
+            dexOptions:"4g",
+            applicationIdDevelop:'com.xiwang.property.management.develop',
+            minifyEnabled:false,
+            zipAlignEnabled:false,
+            shrinkResources:false,
+            checkReleaseBuilds:false,
+            abortOnError:false,
+            dirs:'libs',
+
+    ]
+
+
+    sourceSetting=[
+            'src/main/res/layouts/activity',
+            'src/main/res/layouts/adapter',
+            'src/main/res/layouts/dailog',
+            'src/main/res/layouts/fragment',
+            'src/main/res/layouts/other',
+            'src/main/res/layouts/view',
+            'src/main/res/layouts',
+            'src/main/res'
+    ]
+    keyId=[
+            app_name: "@string/app_name",
+            app_icon: "@mipmap/app_icon",
+    ]
+  dependencies = [
+          lifecycle_version:"2.0.0",
+          junit :'junit:junit:4.12',
+          appcompat :'androidx.appcompat:appcompat:1.0.0-alpha1',
+          runner :'androidx.test:runner:1.1.0-alpha3',
+          espresso :'androidx.test.espresso:espresso-core:3.1.0-alpha3',
+          arouterCompiler : 'com.alibaba:arouter-compiler:1.2.1',
+          coreRuntime : 'com.alibaba:arouter-compiler:1.2.1',
+          constraintlayout:'androidx.constraintlayout:constraintlayout:2.0.0-beta1',
+          //腾讯bugly
+          crashreport_upgrade: 'com.tencent.bugly:crashreport_upgrade:latest.release',//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
+          nativecrashreport:'com.tencent.bugly:nativecrashreport:latest.release', //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+           //liveData
+          lifecycleExtensions:"androidx.lifecycle:lifecycle-extensions:$rootProject.ext.dependencies.lifecycle_version",
+          lifecycleViewmodel: "androidx.lifecycle:lifecycle-viewmodel:$rootProject.ext.dependencies.lifecycle_version",
+          //room
+          roomRuntime :'androidx.room:room-runtime:2.1.0-beta01',
+          roomCompiler :'androidx.room:room-compiler:2.1.0-beta01',
+          //retrofit
+          retrofit: 'com.squareup.retrofit2:retrofit:2.0.2',
+          converterGson: 'com.squareup.retrofit2:converter-gson:2.0.2',
+          gson: 'com.google.code.gson:gson:2.8.5',
+          adapterRxjava: 'com.squareup.retrofit2:adapter-rxjava:2.0.2',
+          //okhttp的log信息
+          logginInterceptor: 'com.squareup.okhttp3:logging-interceptor:3.4.1',
+          converterScalars: 'com.squareup.retrofit2:converter-scalars:2.0.0',
+          //arouter
+          arouterApi :'com.alibaba:arouter-api:1.4.0',
+          //multidex
+          multidex: 'androidx.multidex:multidex:2.0.1',
+          //aspectjrt
+          aspectjrt: 'org.aspectj:aspectjrt:1.8.9'
+
+  ]
+
+
+
+
+
+
+
+
+//    dependencies = [
+//            "appcompatV7"     :  'com.android.support:appcompat-v7:26.1.0',
+//            "supportDesign"   : 'com.android.support:design:26.1.0',
+//            "constraintLayout": 'com.android.support.constraint:constraint-layout:1.0.2',
+//            "gson"             : 'com.google.code.gson:gson:2.8.0',
+//            "butterknife"      : 'com.jakewharton:butterknife:8.8.1',
+//
+//            "annotationProcessor":'com.jakewharton:butterknife-compiler:8.8.1',
+//            "testImplementation": 'junit:junit:4.12',
+//            "androidTestImplementation":'com.android.support.test:runner:1.0.1',
+//            "androidTestImplementation": 'com.android.support.test.espresso:espresso-core:3.0.1',
+//            "gridpagersnaphelper":  'com.hhl:gridpagersnaphelper:1.0.0',
+//            // Optional , config indicator
+//            "recyclerviewindicator": 'com.hhl:recyclerviewindicator:1.0.0',
+//            "photoview" :'com.github.chrisbanes.photoview:library:1.2.4',
+//            "MultiStateView": 'com.github.Kennyc1012:MultiStateView:1.3.2',
+//            "cardview":'com.android.support:cardview-v7:26.1.0',
+//            "leakcanary":'com.squareup.leakcanary:leakcanary-android:1.5.4',
+//            "glide":  'com.github.bumptech.glide:glide:4.0.0',
+//            "eventBus": 'org.greenrobot:eventbus:3.0.0',
+//            "wxPay":'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+',
+//            "SuspensionIndexBar":'com.github.mcxtzhang:SuspensionIndexBar:V1.0.0',
+//            "walle": 'com.meituan.android.walle:library:1.0.3',
+//            "multidex":'com.android.support:multidex:1.0.1',
+//            "avi": 'com.wang.avi:library:2.1.0',
+//            "retrofit"  : 'com.squareup.retrofit2:retrofit:2.2.0',
+//            "retrofit2Converter" : 'com.squareup.retrofit2:converter-gson:2.3.0',
+//            "retrofit2ConverterScalars" : 'com.squareup.retrofit2:converter-scalars:2.3.0',
+//            "adapterRxjava"   : 'com.squareup.retrofit2:adapter-rxjava:2.+',
+//            "okhttp3Interceptor":'com.squareup.okhttp3:logging-interceptor:3.6.0',
+//            //ConverterFactory的String依赖包
+//            "okhttp3": 'com.squareup.okhttp3:okhttp:3.8.0',
+//            "msgpack":'org.msgpack:msgpack:0.6.12',
+//            "async": 'com.loopj.android:android-async-http:1.4.6',
+//            "recyclerview":'com.android.support:recyclerview-v7:26.1.0',
+//            "recyclerviewAdapter": 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+//    ]
+}

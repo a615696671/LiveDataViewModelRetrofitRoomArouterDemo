@@ -23,6 +23,11 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         loginViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
+        loginViewModel.getLiveData().observe(this, new Observer<BaseBean>() {
+            @Override
+            public void onChanged(BaseBean baseBean) {
 
+            }
+        });
     }
 }

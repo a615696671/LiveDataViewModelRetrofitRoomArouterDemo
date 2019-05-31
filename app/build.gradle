@@ -6,32 +6,34 @@ apply plugin: 'android-aspectjx'
 apply plugin: 'bugly'
 
 android {
-
-    compileSdkVersion 28
+    dexOptions {
+        javaMaxHeapSize rootProject.ext.android.javaMaxHeapSize
+    }
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        applicationId "com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 2
-        versionName "2.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner rootProject.ext.android.testInstrumentationRunner
+        multiDexEnabled rootProject.ext.android.multiDexEnabled
+        resConfigs "zh", "zh-rCN"//移除除中文以外的其他语言
         //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
-        multiDexEnabled true
-        flavorDimensions "versionCode"
+        flavorDimensions rootProject.ext.android.flavorDimensions
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
             }
         }
-
     }
     //在apk文件后边生成版本号信息
-//    android.applicationVariants.all {
-////        variant ->
-////            variant.outputs.all {
-////                outputFileName = "${rootProject.ext.android.apkname}_v${variant.versionName}.apk"
-////            }
-////    }
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "${rootProject.ext.android.apkname}_v${variant.versionName}.apk"
+            }
+    }
 
     signingConfigs {
         release {
@@ -41,9 +43,7 @@ android {
             storePassword 'currency'
         }
     }
-    dexOptions {
-        javaMaxHeapSize "4g"
-    }
+
     buildTypes {
         //调试版本，无混淆
         debug {
@@ -51,26 +51,52 @@ android {
         }
         //发布版本，无混淆
         release {
-            minifyEnabled false
-            zipAlignEnabled false
-            shrinkResources false
+            minifyEnabled rootProject.ext.android.minifyEnabled
+            zipAlignEnabled rootProject.ext.android.zipAlignEnabled
+            shrinkResources rootProject.ext.android.shrinkResources
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+ sourceSets {
+        main {
+            res.srcDirs =  rootProject.ext.sourceSetting
+            jniLibs.srcDirs = []
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds rootProject.ext.android.checkReleaseBuilds
+        abortOnError rootProject.ext.android.abortOnError
+    }
 
+
+    productFlavors {
+        //开发环境
+        develop {
+            buildConfigField "int", "ENV_TYPE", "3"
+            applicationId rootProject.ext.android.applicationIdDevelop
+            manifestPlaceholders =[
+                    app_name:  rootProject.ext.keyId.app_name,
+                    app_icon:  rootProject.ext.keyId.app_icon,
+            ]
+        }
+
+    }
+    repositories {
+        flatDir {
+            dirs rootProject.ext.android.dirs
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0-beta01'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-beta01'
+    testImplementation rootProject.ext.dependencies.junit
+    androidTestImplementation   rootProject.ext.dependencies.runner
+    androidTestImplementation   rootProject.ext.dependencies.espresso
+    annotationProcessor rootProject.ext.dependencies.arouterCompiler
     implementation project(':commonlibrary')
-    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
     implementation project(':testmodule')
-    implementation 'androidx.arch.core:core-runtime:2.0.1'
     implementation project(':bugly')
 }
+

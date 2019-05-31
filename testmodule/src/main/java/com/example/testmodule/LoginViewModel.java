@@ -1,6 +1,5 @@
 package com.example.testmodule;
 
-import com.example.commonlibrary.NetDataUtils;
 import com.example.commonlibrary.http.BaseBean;
 import com.example.commonlibrary.http.RetrofitCallback;
 import com.example.commonlibrary.http.RetrofitHelper;
