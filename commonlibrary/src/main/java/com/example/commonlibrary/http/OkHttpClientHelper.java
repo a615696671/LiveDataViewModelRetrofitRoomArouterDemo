@@ -2,10 +2,17 @@ package com.example.commonlibrary.http;
 
 
 import com.example.commonlibrary.BuildConfig;
+import com.example.commonlibrary.ContentValue;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -51,7 +58,24 @@ public class OkHttpClientHelper {
             mClient = builder.connectTimeout(TIMEOUT, TimeUnit.SECONDS)
                     .readTimeout(TIMEOUT, TimeUnit.SECONDS)
                     .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
-                    .cache(cache)      //设置缓存
+                  .cache(cache)
+//                    .cookieJar(new CookieJar() {
+//                        private final HashMap<String, List<Cookie>> cookieStore = new HashMap<String, List<Cookie>>();
+//                        @Override
+//                        public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
+//                            if(cookies.size()>=3){
+//                                cookieStore.put(ContentValue.BASE_URL, cookies);
+//                            }
+//                        }
+//                        @Override
+//                        public List<Cookie> loadForRequest(HttpUrl url) {
+//                            List<Cookie> cookies = new ArrayList<Cookie>();
+//                            if (cookieStore != null && cookieStore.get(ContentValue.BASE_URL) != null){
+//                                cookies = cookieStore.get(ContentValue.BASE_URL);
+//                            }
+//                            return cookies;
+//                        }
+//                    })      //设置缓存
                     .build();
         }
         return mClient;
