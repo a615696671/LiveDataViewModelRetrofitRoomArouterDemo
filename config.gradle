@@ -40,7 +40,6 @@ ext{
             app_icon: "@mipmap/app_icon",
     ]
   dependencies = [
-          lifecycle_version:"2.0.0",
           junit :'junit:junit:4.12',
           appcompat :'androidx.appcompat:appcompat:1.0.0-alpha1',
           runner :'androidx.test:runner:1.1.0-alpha3',
@@ -52,8 +51,8 @@ ext{
           crashreport_upgrade: 'com.tencent.bugly:crashreport_upgrade:latest.release',//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
           nativecrashreport:'com.tencent.bugly:nativecrashreport:latest.release', //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
            //liveData
-          lifecycleExtensions:"androidx.lifecycle:lifecycle-extensions:$rootProject.ext.dependencies.lifecycle_version",
-          lifecycleViewmodel: "androidx.lifecycle:lifecycle-viewmodel:$rootProject.ext.dependencies.lifecycle_version",
+          lifecycleExtensions:"androidx.lifecycle:lifecycle-extensions:2.0.0",
+          lifecycleViewmodel: "androidx.lifecycle:lifecycle-viewmodel:2.0.0",
           //room
           roomRuntime :'androidx.room:room-runtime:2.1.0-beta01',
           roomCompiler :'androidx.room:room-compiler:2.1.0-beta01',
