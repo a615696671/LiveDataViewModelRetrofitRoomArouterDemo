@@ -34,7 +34,12 @@ android {
                 outputFileName = "${rootProject.ext.android.apkname}_v${variant.versionName}.apk"
             }
     }
-
+    sourceSets {
+        main {
+            res.srcDirs =  rootProject.ext.sourceSetting
+            jniLibs.srcDirs = []
+        }
+    }
     signingConfigs {
         release {
             keyAlias 'currency'
@@ -58,12 +63,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
- sourceSets {
-        main {
-            res.srcDirs =  rootProject.ext.sourceSetting
-            jniLibs.srcDirs = []
-        }
-    }
+
     lintOptions {
         checkReleaseBuilds rootProject.ext.android.checkReleaseBuilds
         abortOnError rootProject.ext.android.abortOnError
