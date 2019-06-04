@@ -41,8 +41,6 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
         super.onCreate(savedInstanceState);
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
-        //将Activity实例添加到AppManager的堆栈
-        AppManager.getAppManager().addActivity(this);
         mPresent = createPresent();
         mPresent.attachView((V) this);
         mContext = this;

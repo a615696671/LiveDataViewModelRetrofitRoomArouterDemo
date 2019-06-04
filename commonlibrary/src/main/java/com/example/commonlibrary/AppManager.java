@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 
+import com.example.commonlibrary.http.OkHttpClientHelper;
+
 import java.util.Stack;
 
 /**
@@ -11,8 +13,8 @@ import java.util.Stack;
  */
 
 public class AppManager {
-    private static Stack<Activity> activityStack;
-    private static AppManager instance;
+    private volatile  static  Stack<Activity> activityStack;
+    private volatile  static AppManager instance;
 
     public  Stack<Activity> getActivityStack() {
         return activityStack;
@@ -26,9 +28,15 @@ public class AppManager {
      */
     public static AppManager getAppManager() {
         if (instance == null) {
-            instance = new AppManager();
+            synchronized (AppManager.class) {
+                if (instance == null) {
+                    instance = new AppManager();
+                }
+            }
         }
         return instance;
+
+
     }
 
     /**
@@ -36,7 +44,11 @@ public class AppManager {
      */
     public void addActivity(Activity activity) {
         if (activityStack == null) {
-            activityStack = new Stack<Activity>();
+            synchronized (AppManager.class) {
+                if (activityStack == null) {
+                    activityStack = new Stack<Activity>();
+                }
+            }
         }
         activityStack.add(activity);
     }
