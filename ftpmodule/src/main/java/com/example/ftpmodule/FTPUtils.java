@@ -156,7 +156,6 @@ public class FTPUtils {
         for (int i = 0; i <split.length-2; i++) {
             if(ftpClient.changeWorkingDirectory(split[i]+"/")){
                 //切换到目录成功则表示有该文件夹存在
-
             }else{
                 //切换到目录失败则表示有该文件夹不存在，则创建并切换到该目录
                 ftpClient.makeDirectory(split[i]);
