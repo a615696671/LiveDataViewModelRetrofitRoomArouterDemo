@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ftpmodule</string>
+    <!--用-拼接依次为地址,端口,账号,密码-->
+    <string name="ftpKey">10.66.31.83-21-download-kdwms@18</string>
+</resources>
