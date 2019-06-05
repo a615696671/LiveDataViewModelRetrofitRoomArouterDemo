@@ -46,7 +46,7 @@ public class FTPUtils {
             ftpClient.enterLocalActiveMode();
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             OutputStream out = new FileOutputStream(localFile, true);
-            ftpClient.setRestartOffset(localSize); //设置从哪里开始下，就是断点下载 
+            ftpClient.setRestartOffset(0); //设置从哪里开始下，就是断点下载 
             InputStream input = ftpClient.retrieveFileStream(serverPath);
             byte[] b = new byte[1024];
             int length = 0;
