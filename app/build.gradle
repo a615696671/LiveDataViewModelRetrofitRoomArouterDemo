@@ -58,16 +58,16 @@ android {
         }
     }
 
-//    lintOptions {
-//        checkReleaseBuilds rootProject.ext.android.checkReleaseBuilds
-//        abortOnError rootProject.ext.android.abortOnError
-//    }
+    lintOptions {
+        checkReleaseBuilds rootProject.ext.android.checkReleaseBuilds
+        abortOnError rootProject.ext.android.abortOnError
+    }
 
 
     productFlavors {
         //开发环境
         develop {
-            buildConfigField "int", "ENV_TYPE", "3"
+            buildConfigField "int", "ENV_TYPE", "0"
             applicationId rootProject.ext.android.applicationIdDevelop
             manifestPlaceholders =[
                     app_name:  rootProject.ext.keyId.app_name,

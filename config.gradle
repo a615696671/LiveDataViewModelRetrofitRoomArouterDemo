@@ -21,7 +21,6 @@ ext{
             checkReleaseBuilds:false,
             abortOnError:false,
             dirs:'libs',
-
     ]
 
     keyId=[
@@ -60,6 +59,7 @@ ext{
           multidex: 'androidx.multidex:multidex:2.0.1',
           //aspectjrt
           aspectjrt: 'org.aspectj:aspectjrt:1.8.9',
+          //https://github.com/tbruyelle/RxPermissions
           rxpermissions :'com.github.tbruyelle:rxpermissions:0.10.2'
   ]
 }
