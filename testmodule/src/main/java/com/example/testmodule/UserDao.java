@@ -13,7 +13,7 @@ public interface UserDao {
     @Insert
     void insert(UserEntity entity);
 
-    @Query("SELECT * FROM UserEntity WHERE id=1")
+    @Query("SELECT * FROM UserEntity WHERE id=0")
     UserEntity getUserOne();
 
     @Update
