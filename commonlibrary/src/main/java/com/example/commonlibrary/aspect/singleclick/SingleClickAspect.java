@@ -1,5 +1,6 @@
 package com.example.commonlibrary.aspect.singleclick;
 
+
 import android.view.View;
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -21,7 +22,6 @@ public class SingleClickAspect {
     @Pointcut("execution(@com.example.commonlibrary.singleclick.SingleClick * *(..))")
     public void methodAnnotated() {
     }
-
     /**
      * 定义一个切面方法，包裹切点方法
      */
