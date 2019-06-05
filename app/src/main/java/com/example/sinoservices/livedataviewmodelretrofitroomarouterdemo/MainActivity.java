@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.commonlibrary.ArouterConstant;
-import com.example.ftpmodule.DownLoadUtils;
 
 @Route(path = ArouterConstant.MainActivity)
 public class MainActivity extends AppCompatActivity {
@@ -13,7 +12,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DownLoadUtils downLoadUtils=new DownLoadUtils();
-        downLoadUtils.installApk(this);
     }
 }
