@@ -23,7 +23,7 @@ import androidx.annotation.Nullable;
 /**
  * View that contains 4 different states: Content, Error, Empty, and Loading.<br>
  * Each state has their own separate layout which can be shown/hidden by setting
- * the {@link com.kennyc.view.MultiStateView.ViewState} accordingly
+ * the {@link com.example.commonlibrary.widget.MultiStateView.ViewState} accordingly
  * Every MultiStateView <b><i>MUST</i></b> contain a content view. The content view
  * is obtained from whatever is inside of the tags of the view via its XML declaration
  */
@@ -180,10 +180,10 @@ public class MultiStateView extends FrameLayout {
     }
 
     /**
-     * Returns the {@link View} associated with the {@link com.kennyc.view.MultiStateView.ViewState}
+     * Returns the {@link View} associated with the {@link }
      *
-     * @param state The {@link com.kennyc.view.MultiStateView.ViewState} with to return the view for
-     * @return The {@link View} associated with the {@link com.kennyc.view.MultiStateView.ViewState}, null if no view is present
+     * @param state The {@link } with to return the view for
+     * @return The {@link View} associated with the {@link }, null if no view is present
      */
     @Nullable
     public View getView(@ViewState int state) {
@@ -206,7 +206,7 @@ public class MultiStateView extends FrameLayout {
     }
 
     /**
-     * Returns the current {@link com.kennyc.view.MultiStateView.ViewState}
+     * Returns the current {@link }
      *
      * @return
      */
@@ -216,9 +216,9 @@ public class MultiStateView extends FrameLayout {
     }
 
     /**
-     * Sets the current {@link com.kennyc.view.MultiStateView.ViewState}
+     * Sets the current {@link }
      *
-     * @param state The {@link com.kennyc.view.MultiStateView.ViewState} to set {@link com.kennyc.view.MultiStateView} to
+     * @param state The {@link } to set {@link } to
      */
     public void setViewState(@ViewState int state) {
         if (state != mViewState) {
@@ -230,7 +230,7 @@ public class MultiStateView extends FrameLayout {
     }
 
     /**
-     * Shows the {@link View} based on the {@link com.kennyc.view.MultiStateView.ViewState}
+     * Shows the {@link View} based on the {@link }
      */
     private void setView(@ViewState int previousState) {
         switch (mViewState) {
@@ -323,8 +323,8 @@ public class MultiStateView extends FrameLayout {
      * Sets the view for the given view state
      *
      * @param view          The {@link View} to use
-     * @param state         The {@link com.kennyc.view.MultiStateView.ViewState}to set
-     * @param switchToState If the {@link com.kennyc.view.MultiStateView.ViewState} should be switched to
+     * @param state         The {@link }to set
+     * @param switchToState If the {@link } should be switched to
      */
     public void setViewForState(View view, @ViewState int state, boolean switchToState) {
         switch (state) {
@@ -358,21 +358,21 @@ public class MultiStateView extends FrameLayout {
     }
 
     /**
-     * Sets the {@link View} for the given {@link com.kennyc.view.MultiStateView.ViewState}
+     * Sets the {@link View} for the given {@link }
      *
      * @param view  The {@link View} to use
-     * @param state The {@link com.kennyc.view.MultiStateView.ViewState} to set
+     * @param state The {@link } to set
      */
     public void setViewForState(View view, @ViewState int state) {
         setViewForState(view, state, false);
     }
 
     /**
-     * Sets the {@link View} for the given {@link com.kennyc.view.MultiStateView.ViewState}
+     * Sets the {@link View} for the given {@link }
      *
      * @param layoutRes     Layout resource id
-     * @param state         The {@link com.kennyc.view.MultiStateView.ViewState} to set
-     * @param switchToState If the {@link com.kennyc.view.MultiStateView.ViewState} should be switched to
+     * @param state         The {@link } to set
+     * @param switchToState If the {@link } should be switched to
      */
     public void setViewForState(@LayoutRes int layoutRes, @ViewState int state, boolean switchToState) {
         if (mInflater == null) mInflater = LayoutInflater.from(getContext());
@@ -381,7 +381,7 @@ public class MultiStateView extends FrameLayout {
     }
 
     /**
-     * Sets the {@link View} for the given {@link com.kennyc.view.MultiStateView.ViewState}
+     * Sets the {@link View} for the given {@link }
      *
      * @param layoutRes Layout resource id
      * @param state     The {@link View} state to set
