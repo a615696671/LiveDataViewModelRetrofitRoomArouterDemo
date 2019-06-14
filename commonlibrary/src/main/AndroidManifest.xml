@@ -47,5 +47,4 @@
      <uses-permission android:name="android.permission.NFC"/>
      <!--声明只有带有nfc功能的手机才能下载你在google市场发布的具有NFC功能的app-->
      <uses-feature android:name="android.hardware.nfc" android:required="true"/>
-
 </manifest>

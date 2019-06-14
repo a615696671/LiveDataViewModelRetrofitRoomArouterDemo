@@ -26,7 +26,8 @@ ext{
     keyId=[
             app_name: "@string/app_name",
             app_icon: "@mipmap/app_icon",
-            ftpKey:"@string/ftpKey"
+            ftpKey:"@string/ftpKey",
+            bugly:"@string/bugly"
     ]
   dependencies = [
           junit :'junit:junit:4.12',
