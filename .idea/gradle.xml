@@ -9,10 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/bugly" />
             <option value="$PROJECT_DIR$/commonlibrary" />
-            <option value="$PROJECT_DIR$/ftpmodule" />
-            <option value="$PROJECT_DIR$/jpegmodule" />
             <option value="$PROJECT_DIR$/testmodule" />
           </set>
         </option>

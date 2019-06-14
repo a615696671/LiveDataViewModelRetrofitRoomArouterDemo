@@ -73,7 +73,9 @@ android {
                     app_name:  rootProject.ext.keyId.app_name,
                     app_icon:  rootProject.ext.keyId.app_icon,
                     ftpKey: rootProject.ext.keyId.ftpKey,
-                    bugly:rootProject.ext.keyId.bugly
+                    bugly:rootProject.ext.keyId.bugly,
+                    map:rootProject.ext.keyId.map
+
             ]
         }
 

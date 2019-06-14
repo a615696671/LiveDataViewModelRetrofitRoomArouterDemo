@@ -1,9 +1,14 @@
 package com.example.commonlibrary;
 
 import android.app.Application;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.commonlibrary.map.LocationService;
 import com.tencent.bugly.Bugly;
 
 import androidx.multidex.MultiDex;
@@ -33,7 +38,25 @@ public class BaseApplication extends Application{
         ARouter.init(this); // 尽可能早，推荐在Application中初始化
         String bugly = (String) getApplicationInfo().metaData.get("bugly");
         Bugly.init(getApplicationContext(),bugly ,isDebug);
+        bindService(new Intent(getContext(), BaseApplication.class), serviceConnection, Context.BIND_AUTO_CREATE);
+        startService(new Intent(getContext(), LocationService.class));//开启定位服务
+
     }
+    // 在Activity中，我们通过ServiceConnection接口来取得建立连接与连接意外丢失的回调
+    ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            // 获取服务的操作对象
+            LocationService.LocationBinder binder = (LocationService.LocationBinder) service;
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            // 连接断开
+
+        }
+    };
     public boolean  isDebug(){
         return  isDebug;
     }

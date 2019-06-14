@@ -1,1 +1,1 @@
-include ':app', ':commonlibrary', ':testmodule', ':bugly', ':ftpmodule', ':jpegmodule'
+include ':app', ':commonlibrary', ':testmodule'

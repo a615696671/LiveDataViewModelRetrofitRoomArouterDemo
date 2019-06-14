@@ -14,7 +14,7 @@ ext{
             flavorDimensions:"versionCode",
             applicationId:'com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo',
             dexOptions:"4g",
-            applicationIdDevelop:'com.xiwang.property.management.develop',
+            applicationIdDevelop:'com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo',
             minifyEnabled:false,
             zipAlignEnabled:true,
             shrinkResources:false,
@@ -27,7 +27,8 @@ ext{
             app_name: "@string/app_name",
             app_icon: "@mipmap/app_icon",
             ftpKey:"@string/ftpKey",
-            bugly:"@string/bugly"
+            bugly:"@string/bugly",
+            map:"@string/map"
     ]
   dependencies = [
           junit :'junit:junit:4.12',
