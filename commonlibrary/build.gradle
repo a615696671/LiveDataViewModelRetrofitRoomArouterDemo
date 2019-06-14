@@ -11,11 +11,14 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
-
             }
         }
     }
-
+sourceSets {
+    main{
+        jniLibs.srcDirs=['libs']
+    }
+}
     buildTypes {
         release {
             minifyEnabled rootProject.ext.android.minifyEnabled
@@ -48,7 +51,6 @@ dependencies {
     api rootProject.ext.dependencies.aspectjrt
     api rootProject.ext.dependencies.rxpermissions
     api files('libs/commons-net-3.6.jar')
-    api 'com.amap.api:3dmap:latest.integration'
     api 'com.amap.api:navi-3dmap:latest.integration'
     api 'com.amap.api:search:latest.integration'
     api 'com.amap.api:location:latest.integration'

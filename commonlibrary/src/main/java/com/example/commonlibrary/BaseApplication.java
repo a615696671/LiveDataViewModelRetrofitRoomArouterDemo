@@ -5,10 +5,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.os.IBinder;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.commonlibrary.map.LocationService;
+import com.example.commonlibrary.utils.AppUtils;
 import com.tencent.bugly.Bugly;
 
 import androidx.multidex.MultiDex;
@@ -36,7 +38,12 @@ public class BaseApplication extends Application{
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
         ARouter.init(this); // 尽可能早，推荐在Application中初始化
-        String bugly = (String) getApplicationInfo().metaData.get("bugly");
+        String bugly = null;
+        try {
+            bugly = AppUtils.getMetaDataApplication(this,"bugly");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
         Bugly.init(getApplicationContext(),bugly ,isDebug);
         bindService(new Intent(getContext(), BaseApplication.class), serviceConnection, Context.BIND_AUTO_CREATE);
         startService(new Intent(getContext(), LocationService.class));//开启定位服务

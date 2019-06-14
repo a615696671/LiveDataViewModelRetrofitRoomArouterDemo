@@ -22,13 +22,13 @@ ext{
             abortOnError:true,
             dirs:'libs',
     ]
-
+//    <!--用-拼接依次为地址,端口,账号,密码-->
     keyId=[
             app_name: "@string/app_name",
             app_icon: "@mipmap/app_icon",
-            ftpKey:"@string/ftpKey",
-            bugly:"@string/bugly",
-            map:"@string/map"
+            ftpKey: "10.66.31.83-21-download-kdwms@18",
+            bugly: "6d22aa302e",
+            map: "ca1d419dde25a70cfbd20a1e666b1113"
     ]
   dependencies = [
           junit :'junit:junit:4.12',

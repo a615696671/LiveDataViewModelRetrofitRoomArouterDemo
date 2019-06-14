@@ -69,7 +69,7 @@ public class GetLocation {
     public interface   OnLocationSuccess{
         void getLocationSuccess(Object[] objects);
         void getLoacalCityCode(String cityCode);
-       void  getLocationError();
+        void  getLocationError();
     }
 
 }

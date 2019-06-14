@@ -1,25 +1,12 @@
 package com.example.testmodule;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
-import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.amap.api.maps.MapView;
-import com.amap.api.maps.model.BitmapDescriptorFactory;
-import com.amap.api.maps.model.LatLng;
-import com.amap.api.maps.model.Marker;
-import com.amap.api.maps.model.MarkerOptions;
-import com.example.commonlibrary.ArouterConstant;
-import com.example.commonlibrary.NetDataUtils;
-import com.example.commonlibrary.http.BaseBean;
-import com.example.ftpmodule.DownLoadUtils;
 
+import com.example.commonlibrary.ArouterConstant;
 
 @Route(path = ArouterConstant.TestActivity)
 public class TestActivity extends AppCompatActivity {
