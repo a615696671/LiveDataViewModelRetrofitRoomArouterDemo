@@ -18,6 +18,7 @@ import androidx.multidex.MultiDex;
 public class BaseApplication extends Application{
     private static  boolean isDebug=true;
     private static Context  context;
+    private LocationService locationService;
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -38,23 +39,18 @@ public class BaseApplication extends Application{
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
         ARouter.init(this); // 尽可能早，推荐在Application中初始化
-        String bugly = null;
-        try {
-            bugly = AppUtils.getMetaDataApplication(this,"bugly");
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
+        String bugly =  AppUtils.getMetaDataApplication(this,"bugly");
         Bugly.init(getApplicationContext(),bugly ,isDebug);
         bindService(new Intent(getContext(), BaseApplication.class), serviceConnection, Context.BIND_AUTO_CREATE);
         startService(new Intent(getContext(), LocationService.class));//开启定位服务
-
     }
     // 在Activity中，我们通过ServiceConnection接口来取得建立连接与连接意外丢失的回调
     ServiceConnection serviceConnection = new ServiceConnection() {
+
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             // 获取服务的操作对象
-            LocationService.LocationBinder binder = (LocationService.LocationBinder) service;
+            locationService = ((LocationService.LocationBinder) service).getService();
 
         }
 

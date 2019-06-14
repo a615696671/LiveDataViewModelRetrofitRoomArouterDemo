@@ -106,9 +106,14 @@ public class AppUtils {
         return bm;
     }
 
-    public static String getMetaDataApplication(Context context,String key) throws PackageManager.NameNotFoundException {
+    public static String getMetaDataApplication(Context context,String key){
         //在application应用<meta-data>元素。
-       ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(getPackageName(context),PackageManager.GET_META_DATA);
+        ApplicationInfo appInfo = null;
+        try {
+            appInfo = context.getPackageManager().getApplicationInfo(getPackageName(context), PackageManager.GET_META_DATA);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
         return  appInfo.metaData.getString(key);
     }
 
