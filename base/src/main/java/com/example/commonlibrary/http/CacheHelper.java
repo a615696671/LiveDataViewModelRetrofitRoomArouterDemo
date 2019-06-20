@@ -2,8 +2,6 @@ package com.example.commonlibrary.http;
 
 
 
-import com.example.commonlibrary.BaseApplication;
-
 import java.io.File;
 
 import okhttp3.Cache;
@@ -22,7 +20,7 @@ public class CacheHelper {
 
     private CacheHelper(){
 
-        cacheFile = new File(BaseApplication.getContext().getCacheDir().getAbsolutePath(), "mycache");
+        cacheFile = new File( "mycache");
         if(!cacheFile.exists()){
             cacheFile.mkdir();
         }

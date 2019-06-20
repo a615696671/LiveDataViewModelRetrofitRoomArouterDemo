@@ -1,4 +1,4 @@
-package com.example.commonlibrary.bugly;
+package com.example.common.bugly;
 
 import androidx.core.content.FileProvider;
 

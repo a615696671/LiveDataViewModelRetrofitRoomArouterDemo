@@ -1,4 +1,4 @@
-package com.example.commonlibrary.map;
+package com.example.common.map;
 
 import android.app.Service;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
-import com.google.gson.Gson;
+
 
 
 /**
@@ -79,9 +79,6 @@ public class LocationService extends Service {
                         locationServiceBean.setDistrict(amapLocation.getDistrict());
                         locationServiceBean.setAoiName(amapLocation.getAoiName());
                         locationServiceBean.setCurrentPosition(amapLocation.getDistrict() + amapLocation.getAoiName());
-                        final SharedPreferences   sp = PreferenceManager.getDefaultSharedPreferences(LocationService.this.getApplicationContext());
-                        sp.edit().putString(LOCALTION,new Gson().toJson(locationServiceBean)).apply();
-                        Log.e(TAG,new Gson().toJson(locationServiceBean));
                         GetLocation  location=new GetLocation();
                         location.setL(new GetLocation.OnLocationSuccess() {
                             @Override
@@ -90,13 +87,7 @@ public class LocationService extends Service {
                             }
                             @Override
                             public void getLoacalCityCode(String cityCode) {
-                                String location1 = sp.getString(LOCALTION, "");
-                                if(!TextUtils.isEmpty(location1)){
-                                    LocationServiceBean serviceBean = new Gson().fromJson(location1, LocationServiceBean.class);
-                                    serviceBean.setCityCode(cityCode);
-                                    Log.e("LocationServiceBean",serviceBean.toString());
-                                    sp.edit().putString(LOCALTION,new Gson().toJson(serviceBean)).apply();
-                                }
+
                             }
                             @Override
                             public void getLocationError() {

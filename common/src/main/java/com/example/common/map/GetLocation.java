@@ -1,4 +1,4 @@
-package com.example.commonlibrary.map;
+package com.example.common.map;
 
 import android.content.Context;
 

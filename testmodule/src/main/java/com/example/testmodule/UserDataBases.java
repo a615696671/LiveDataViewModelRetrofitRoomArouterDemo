@@ -2,8 +2,6 @@ package com.example.testmodule;
 
 import android.content.Context;
 
-import com.example.commonlibrary.BaseApplication;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -11,6 +9,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.example.common.BaseApplication;
 
 @Database(entities = {UserEntity.class}, version = 1)
 public abstract class UserDataBases  extends RoomDatabase {
