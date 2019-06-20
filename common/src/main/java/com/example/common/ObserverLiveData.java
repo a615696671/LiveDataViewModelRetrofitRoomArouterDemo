@@ -1,8 +1,6 @@
-package com.example.commonlibrary.aac;
+package com.example.common;
 
 import androidx.lifecycle.Observer;
-
-import com.example.commonlibrary.http.BaseBean;
 
 public abstract class ObserverLiveData<M extends BaseBean> implements Observer<M> {
     public abstract void onChangedSuccess(M model);

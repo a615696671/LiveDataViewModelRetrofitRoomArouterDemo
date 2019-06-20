@@ -11,15 +11,11 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import com.amap.api.maps.MapView;
 import com.example.commonlibrary.ArouterConstant;
-import com.example.commonlibrary.BaseRequestParams;
 import com.example.commonlibrary.aac.BaseActivity;
-import com.example.commonlibrary.aac.ObserverLiveData;
-import com.example.commonlibrary.utils.NetDataUtils;
-
 @Route(path = ArouterConstant.TestActivity)
 public class TestActivity extends BaseActivity {
     private MapView mMapView;
-    private LoginViewModel loginViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,27 +33,6 @@ public class TestActivity extends BaseActivity {
 //            }
 //        });
 
-
-        loginViewModel = get(LoginViewModel.class);
-        loginViewModel.login(NetDataUtils.createJson(new BaseRequestParams() {
-            @Override
-            public int hashCode() {
-                return super.hashCode();
-            }
-        }));
-
-        loginViewModel.getLoginMutableLiveData().observe(this, new ObserverLiveData<UserEntity>() {
-            @Override
-            public void onChangedSuccess(UserEntity model) {
-
-            }
-
-            @Override
-            public void onChangedFailure(UserEntity throwable) {
-
-            }
-
-        });
     }
     @Override
     protected void onDestroy() {

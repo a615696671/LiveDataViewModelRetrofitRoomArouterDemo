@@ -4,7 +4,7 @@ package com.example.testmodule;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.example.commonlibrary.http.BaseBean;
+import com.example.common.BaseBean;
 
 @Entity
 public class UserEntity  extends BaseBean {

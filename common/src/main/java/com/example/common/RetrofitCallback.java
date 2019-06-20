@@ -1,12 +1,9 @@
-package com.example.commonlibrary.http;
+package com.example.common;
 
-
-import android.util.Log;
 
 import com.example.commonlibrary.utils.LogUtils;
 
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 
 import retrofit2.Call;
 import retrofit2.Callback;
