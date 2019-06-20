@@ -11,11 +11,14 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+
             }
         }
-
     }
-
+    sourceSets {
+        //数据库概要、记录存放位置
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+    }
     buildTypes {
         release {
             minifyEnabled rootProject.ext.android.minifyEnabled

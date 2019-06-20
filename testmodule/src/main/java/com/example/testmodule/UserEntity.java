@@ -23,7 +23,6 @@ public class UserEntity  extends BaseBean {
      * leave : 1
      */
     private int user_id;
-
     private String username;
     private String password;
     private int sex;
