@@ -14,7 +14,7 @@ import retrofit2.Response;
 /**
  * 创建日期：2018/1/30 0030 下午 4:48
  *
- * @author kong
+ * @author Eddy.Kang
  * @version 1.0
  * @since JDK 1.8
  * 文件名称 RetrofitCallback
