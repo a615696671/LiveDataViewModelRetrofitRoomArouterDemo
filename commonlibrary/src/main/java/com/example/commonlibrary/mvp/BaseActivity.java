@@ -102,7 +102,6 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
         dismissProgressDialog();
         progressDialog = null;
         //将Activity实例从AppManager的堆栈中移除
-        AppManager.getAppManager().finishActivity(this);
         super.onDestroy();
     }
 

@@ -4,8 +4,25 @@ package com.example.commonlibrary.http;
 import com.example.commonlibrary.ContentValue;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+
+import java.io.CharArrayReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Type;
 
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -100,7 +117,7 @@ public class RetrofitHelper {
 //            return null;
 //        }
 //    }
-
+//
 //    private static class CustomGsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
 //        private final Gson gson;
 //        private final TypeAdapter<T> adapter;
@@ -112,32 +129,16 @@ public class RetrofitHelper {
 //
 //        @Override
 //        public T convert(ResponseBody value) throws IOException, JsonParseException {
+//            Reader reader = value.charStream();
+//            JsonReader jsonReader = gson.newJsonReader(reader);
+//
+//            String jsonStr = jsonReader.toString();
+//            JsonObject jsonObject = gson.getAdapter(JsonObject.class)
+//                    .read(jsonReader);
 //            try {
-//
-//                JsonObject jsonObject = gson.getAdapter(JsonObject.class)
-//                        .read(gson.newJsonReader(value.charStream()));
-//                int code = jsonObject.get("code").getAsInt();
-//                if (code == 1003 | code == 1005 | code == 1011 | code == 1013 |
-//                        code == 1016 | code == 1019 | code == 1005 | code == 1025 |
-//                        code == 1027 | code == 1029 | code == 1034 | code == 1036 |
-//                        code == 1038 | code == 1019 | code == 609 | code == 200 | code == 1005) {
-//                    return adapter.fromJsonTree(jsonObject);
-//                } else {
-//                    try {
-//                        throw new CustomException(code, jsonObject.get("message").getAsString());
-//                    } catch (CustomException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//                return null;
-////                JsonElement resultElement = jsonObject.get("resData");
-////                if (resultElement == null) {
-////                    return null;
-////                }
-////               JsonReader jsonReader2 = gson.newJsonReader(
-////                       new CharArrayReader(resultElement.toString().toCharArray()));
-//
-////              return adapter.read(jsonReader2);
+//               JsonReader jsonReader2 = gson.newJsonReader(
+//                       new CharArrayReader(jsonObject.toString().toCharArray()));
+//              return adapter.read(jsonReader2);
 //            } finally {
 //                value.close();
 //            }

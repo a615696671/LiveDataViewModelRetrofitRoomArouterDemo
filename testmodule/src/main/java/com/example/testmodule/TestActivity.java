@@ -2,22 +2,27 @@ package com.example.testmodule;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.amap.api.maps.MapView;
 
+
+import com.amap.api.maps.MapView;
 import com.example.commonlibrary.ArouterConstant;
 
 @Route(path = ArouterConstant.TestActivity)
 public class TestActivity extends AppCompatActivity {
-
-    private LoginViewModel loginViewModel;
+//    private LoginViewModel loginViewModel;
     private MapView mMapView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+        //获取地图控件引用
+        mMapView = findViewById(R.id.map);
+        //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
+         mMapView.onCreate(savedInstanceState);
 //        DownLoadUtils downLoadUtils=new DownLoadUtils();
 //        downLoadUtils.installApk(this);
 //        downLoadUtils.setmDownLoadListener(new DownLoadUtils.DownLoadListener() {
@@ -34,10 +39,6 @@ public class TestActivity extends AppCompatActivity {
 //            }
 //        });
 
-        //获取地图控件引用
-        mMapView = (MapView) findViewById(R.id.map);
-        //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
-        mMapView.onCreate(savedInstanceState);
     }
     @Override
     protected void onDestroy() {

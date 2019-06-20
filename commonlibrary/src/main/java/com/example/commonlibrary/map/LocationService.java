@@ -81,7 +81,7 @@ public class LocationService extends Service {
                         locationServiceBean.setCurrentPosition(amapLocation.getDistrict() + amapLocation.getAoiName());
                         final SharedPreferences   sp = PreferenceManager.getDefaultSharedPreferences(LocationService.this.getApplicationContext());
                         sp.edit().putString(LOCALTION,new Gson().toJson(locationServiceBean)).apply();
-                        Log.e("locaitylsajldsakj",new Gson().toJson(locationServiceBean));
+                        Log.e(TAG,new Gson().toJson(locationServiceBean));
                         GetLocation  location=new GetLocation();
                         location.setL(new GetLocation.OnLocationSuccess() {
                             @Override

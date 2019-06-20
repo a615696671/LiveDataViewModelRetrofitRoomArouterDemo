@@ -13,6 +13,9 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
             }
         }
+        ndk{
+            abiFilters "armeabi","x86","x86_64","armeabi-v7a","armeabi-v8a","mips","mips64"
+        }
     }
 sourceSets {
     main{
@@ -56,4 +59,8 @@ dependencies {
     api 'com.amap.api:location:latest.integration'
     api rootProject.ext.dependencies.crashreport_upgrade
     api rootProject.ext.dependencies. nativecrashreport
+    api rootProject.ext.dependencies.leakcanary
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-11'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-11'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
 }

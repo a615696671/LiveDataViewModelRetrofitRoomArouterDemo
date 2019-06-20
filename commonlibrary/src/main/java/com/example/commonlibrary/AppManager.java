@@ -5,6 +5,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 
 import com.example.commonlibrary.http.OkHttpClientHelper;
+import com.example.commonlibrary.utils.LogUtils;
 
 import java.util.Stack;
 
@@ -15,7 +16,7 @@ import java.util.Stack;
 public class AppManager {
     private volatile  static  Stack<Activity> activityStack;
     private volatile  static AppManager instance;
-
+    private static String TAG="AppManager";
     public  Stack<Activity> getActivityStack() {
         return activityStack;
     }
@@ -31,6 +32,7 @@ public class AppManager {
             synchronized (AppManager.class) {
                 if (instance == null) {
                     instance = new AppManager();
+                    LogUtils.e(TAG,"getAppManager()");
                 }
             }
         }
@@ -51,6 +53,7 @@ public class AppManager {
             }
         }
         activityStack.add(activity);
+        LogUtils.e(TAG,"addActivity()");
     }
 
     /**
@@ -58,6 +61,7 @@ public class AppManager {
      */
     public Activity currentActivity() {
         Activity activity = activityStack.lastElement();
+        LogUtils.e(TAG,"currentActivity()");
         return activity;
     }
 
@@ -69,6 +73,7 @@ public class AppManager {
         if (activity != null) {
             activity.finish();
             activity = null;
+            LogUtils.e(TAG,"finishActivity()");
         }
     }
 
@@ -80,6 +85,7 @@ public class AppManager {
             activityStack.remove(activity);
             activity.finish();
             activity = null;
+            LogUtils.e(TAG,"finishActivity()");
         }
     }
 
@@ -90,6 +96,7 @@ public class AppManager {
         for (Activity activity : activityStack) {
             if (activity.getClass().equals(cls)) {
                 finishActivity(activity);
+                LogUtils.e(TAG,"finishActivity()");
             }
         }
     }
@@ -101,6 +108,7 @@ public class AppManager {
         for (int i = 0, size = activityStack.size(); i < size; i++) {
             if (null != activityStack.get(i)) {
                 activityStack.get(i).finish();
+                LogUtils.e(TAG,"finishAllActivity()");
             }
         }
         activityStack.clear();
@@ -114,6 +122,7 @@ public class AppManager {
             finishAllActivity();
             ActivityManager activityMgr = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
             activityMgr.restartPackage(context.getPackageName());
+            LogUtils.e(TAG,"AppExit()");
             System.exit(0);
         } catch (Exception e) {
         }

@@ -24,9 +24,9 @@ public class DrawableUtil <T extends TextView> {
     }
 
     public interface OnDrawableListener {
-        public void onLeft(View v, Drawable left);
+         void onLeft(View v, Drawable left);
 
-        public void onRight(View v, Drawable right);
+         void onRight(View v, Drawable right);
     }
 
     private View.OnTouchListener mOnTouchListener = new View.OnTouchListener() {
