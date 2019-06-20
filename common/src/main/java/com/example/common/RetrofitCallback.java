@@ -4,6 +4,7 @@ package com.example.common;
 import com.example.commonlibrary.utils.LogUtils;
 
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,6 +24,7 @@ public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M
     public abstract void onThrowable(M  throwable);
     @Override
     public void onResponse(Call<M> call, Response<M> response) {
+
         if(response!=null&&response.body()!=null){
             if(response.body().flag==0){
                 onSuccess(response.body());
@@ -32,8 +34,7 @@ public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M
             }
         }else{
             try {
-                Class <M>  mClass  =  (Class < M > ) ((ParameterizedType) call.getClass()
-                        .getGenericSuperclass()).getActualTypeArguments()[ 0 ];
+                Class<M> mClass = (Class<M>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
                 Throwable throwable = new Throwable("response on a null object reference");
                 M m = mClass.newInstance();
                 m.t=throwable;
@@ -50,8 +51,7 @@ public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M
     @Override
     public void onFailure(Call<M> call, Throwable t) {
         try {
-            Class <M>  mClass  =  (Class < M > ) ((ParameterizedType) call.getClass()
-                    .getGenericSuperclass()).getActualTypeArguments()[ 0 ];
+            Class<M> mClass = (Class<M>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
             LogUtils.d("mClass",mClass.getName());
             M m = mClass.newInstance();
             LogUtils.d("mClass",m.getClass().getName());
