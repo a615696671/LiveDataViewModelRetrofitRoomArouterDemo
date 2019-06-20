@@ -49,6 +49,5 @@ dependencies {
     api rootProject.ext.dependencies. nativecrashreport
     api project(':base')
 
-
 }
 
