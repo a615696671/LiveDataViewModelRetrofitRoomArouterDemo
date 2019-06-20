@@ -1,6 +1,7 @@
 package com.example.common;
 
 
+import com.example.commonlibrary.ContentValue;
 import com.example.commonlibrary.utils.LogUtils;
 
 import java.lang.reflect.ParameterizedType;
@@ -24,9 +25,8 @@ public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M
     public abstract void onThrowable(M  throwable);
     @Override
     public void onResponse(Call<M> call, Response<M> response) {
-
         if(response!=null&&response.body()!=null){
-            if(response.body().flag==0){
+            if(response.body().flag== ContentValue.FLAG_SUCCESS){
                 onSuccess(response.body());
             }else {
                 M body = response.body();
@@ -39,7 +39,7 @@ public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M
                 M m = mClass.newInstance();
                 m.t=throwable;
                 m.msg="please  check url!";
-                m.flag=1;
+                m.flag= ContentValue.FLAG_FAILURE;
                 onThrowable(m);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
@@ -55,7 +55,7 @@ public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M
             LogUtils.d("mClass",mClass.getName());
             M m = mClass.newInstance();
             LogUtils.d("mClass",m.getClass().getName());
-            m.flag=1;
+            m.flag= ContentValue.FLAG_FAILURE;
             m.t=t;
             m.msg=t.getMessage();
             onThrowable(m);

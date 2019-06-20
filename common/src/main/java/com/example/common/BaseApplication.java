@@ -39,17 +39,17 @@ public class BaseApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        if (isDebug()) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
-            ARouter.openLog();     // 打印日志
-            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-            ARouter.init(BaseApplication.this); // 尽可能早，推荐在Application中初始化
-        }
         ThreadExecutor.getInstance().execute(new AbstractInteractor(ThreadExecutor.getInstance(), MainThreadImpl.getInstance()) {
             @Override
             public void run() {
                 registerActivityLifecycleCallbacks(ActivityLifeCallBack.getActivityLifeCallBack());
                 SmartRefreshLayoutDefaultSetting.refreshLayoutDefaultSettingInit();
                 if (isDebug()) {
+                    ARouter.openLog();     // 打印日志  这两行必须写在init之前，否则这些配置在init过程中将无效
+                    ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+                    ARouter.init(BaseApplication.this); // 尽可能早，推荐在Application中初始化
+                    String bugly =  AppUtils.getMetaDataApplication(context,"bugly");
+                    Bugly.init(getApplicationContext(),bugly ,isDebug);
                     LeakCanary.install(BaseApplication.this);//内存泄漏检测
                     //性能优化工具之StrictMode
                     // ThreadPolicy（线程策略），主要可以检测主线程中的一些耗时操作。
@@ -64,8 +64,6 @@ public class BaseApplication extends Application{
                             .penaltyLog()
                             .build());
                 }
-                String bugly =  AppUtils.getMetaDataApplication(context,"bugly");
-                Bugly.init(getApplicationContext(),bugly ,isDebug);
                 bindService(new Intent(getContext(), BaseApplication.class), serviceConnection, Context.BIND_AUTO_CREATE);
                 startService(new Intent(getContext(), LocationService.class));//开启定位服务
             }
