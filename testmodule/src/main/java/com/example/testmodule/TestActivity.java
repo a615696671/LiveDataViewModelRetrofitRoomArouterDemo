@@ -1,11 +1,10 @@
 package com.example.testmodule;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 
 import android.os.Bundle;
-import android.view.View;
+
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
@@ -46,7 +45,7 @@ public class TestActivity extends BaseActivity {
             }
         }));
 
-        loginViewModel.getPersonMutableLiveData().observe(this, new Observer<UserEntity>() {
+        loginViewModel.getLoginMutableLiveData().observe(this, new Observer<UserEntity>() {
             @Override
             public void onChanged(@Nullable UserEntity user) {
 

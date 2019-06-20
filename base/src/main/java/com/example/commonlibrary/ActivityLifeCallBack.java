@@ -27,37 +27,37 @@ public class ActivityLifeCallBack  implements Application.ActivityLifecycleCallb
     public void onActivityCreated(Activity activity, Bundle bundle) {
         //将Activity实例添加到AppManager的堆栈
         AppManager.getAppManager().addActivity(activity);
-        LogUtils.e(TAG,"onActivityCreated()");
+        LogUtils.d(TAG,"onActivityCreated()");
     }
 
     @Override
     public void onActivityStarted(Activity activity) {
-        LogUtils.e(TAG,"onActivityStarted()");
+        LogUtils.d(TAG,"onActivityStarted()");
     }
 
     @Override
     public void onActivityResumed(Activity activity) {
-        LogUtils.e(TAG,"onActivityResumed()");
+        LogUtils.d(TAG,"onActivityResumed()");
     }
 
     @Override
     public void onActivityPaused(Activity activity) {
-        LogUtils.e(TAG,"onActivityPaused()");
+        LogUtils.d(TAG,"onActivityPaused()");
     }
 
     @Override
     public void onActivityStopped(Activity activity) {
-        LogUtils.e(TAG,"onActivityStopped()");
+        LogUtils.d(TAG,"onActivityStopped()");
     }
 
     @Override
     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        LogUtils.e(TAG,"onActivitySaveInstanceState()");
+        LogUtils.d(TAG,"onActivitySaveInstanceState()");
     }
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        LogUtils.e(TAG,"onActivityDestroyed()");
+        LogUtils.d(TAG,"onActivityDestroyed()");
         AppManager.getAppManager().finishActivity(activity);
     }
 }
