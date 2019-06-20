@@ -34,7 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitHelper {
 
-    private  final OkHttpClient mClient;
+    private  final  OkHttpClient mClient;
     private volatile Retrofit mRetrofit;
     private static final Gson gson = new GsonBuilder().serializeNulls().create();
 
