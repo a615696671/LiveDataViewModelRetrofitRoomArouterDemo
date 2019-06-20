@@ -15,6 +15,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         viewModelProvider = getViewModelProvider();
+
     }
     @Override
     protected void onDestroy() {
@@ -34,6 +35,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @return
      */
     private ViewModelProvider getViewModelProvider(){
+
         return ViewModelProviders.of(this);
     }
     /**

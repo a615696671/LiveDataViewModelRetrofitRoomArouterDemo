@@ -1,6 +1,13 @@
 package com.example.commonlibrary.http;
 
 
+import android.util.Log;
+
+import com.example.commonlibrary.utils.LogUtils;
+
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -16,21 +23,49 @@ import retrofit2.Response;
  */
 public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M> {
     public abstract void onSuccess(M model);
-    public abstract void onThrowable(Throwable t, String message);
+    public abstract void onThrowable(M  throwable);
     @Override
     public void onResponse(Call<M> call, Response<M> response) {
         if(response!=null&&response.body()!=null){
             if(response.body().flag==0){
                 onSuccess(response.body());
             }else {
-                onThrowable(new Throwable(response.body().flag+""),response.body().msg);
+                M body = response.body();
+                onThrowable(body);
             }
         }else{
-            onThrowable(new Throwable("response on a null object reference"),"please  check url!");
+            try {
+                Class <M>  mClass  =  (Class < M > ) ((ParameterizedType) call.getClass()
+                        .getGenericSuperclass()).getActualTypeArguments()[ 0 ];
+                Throwable throwable = new Throwable("response on a null object reference");
+                M m = mClass.newInstance();
+                m.t=throwable;
+                m.msg="please  check url!";
+                m.flag=1;
+                onThrowable(m);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            }
         }
     }
     @Override
     public void onFailure(Call<M> call, Throwable t) {
-       onThrowable(t,t.getMessage());
+        try {
+            Class <M>  mClass  =  (Class < M > ) ((ParameterizedType) call.getClass()
+                    .getGenericSuperclass()).getActualTypeArguments()[ 0 ];
+            LogUtils.d("mClass",mClass.getName());
+            M m = mClass.newInstance();
+            LogUtils.d("mClass",m.getClass().getName());
+            m.flag=1;
+            m.t=t;
+            m.msg=t.getMessage();
+            onThrowable(m);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
     }
 }

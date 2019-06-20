@@ -23,10 +23,12 @@ public class LoginViewModel extends BaseViewModel {
                 UserDataBases.getInstance().userDao().update(model);
                 getLoginMutableLiveData().setValue(model);
             }
-            @Override
-            public void onThrowable(Throwable t, String message) {
 
+            @Override
+            public void onThrowable(UserEntity throwable) {
+                getLoginMutableLiveData().setValue(throwable);
             }
+
         });
     }
 }

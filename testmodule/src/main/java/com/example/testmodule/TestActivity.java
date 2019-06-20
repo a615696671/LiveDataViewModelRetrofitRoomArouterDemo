@@ -13,6 +13,7 @@ import com.amap.api.maps.MapView;
 import com.example.commonlibrary.ArouterConstant;
 import com.example.commonlibrary.BaseRequestParams;
 import com.example.commonlibrary.aac.BaseActivity;
+import com.example.commonlibrary.aac.ObserverLiveData;
 import com.example.commonlibrary.utils.NetDataUtils;
 
 @Route(path = ArouterConstant.TestActivity)
@@ -45,11 +46,17 @@ public class TestActivity extends BaseActivity {
             }
         }));
 
-        loginViewModel.getLoginMutableLiveData().observe(this, new Observer<UserEntity>() {
+        loginViewModel.getLoginMutableLiveData().observe(this, new ObserverLiveData<UserEntity>() {
             @Override
-            public void onChanged(@Nullable UserEntity user) {
+            public void onChangedSuccess(UserEntity model) {
 
             }
+
+            @Override
+            public void onChangedFailure(UserEntity throwable) {
+
+            }
+
         });
     }
     @Override
