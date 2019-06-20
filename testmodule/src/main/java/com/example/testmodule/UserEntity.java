@@ -4,8 +4,10 @@ package com.example.testmodule;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.commonlibrary.http.BaseBean;
+
 @Entity
-public class UserEntity {
+public class UserEntity  extends BaseBean {
 
     @PrimaryKey(autoGenerate = true)
     private int id;

@@ -4,7 +4,6 @@ apply plugin: 'com.alibaba.arouter'
 apply plugin: 'android-aspectjx'
 ////注：需要配置符号表时，使用bugly插件
 apply plugin: 'bugly'
-
 android {
     dexOptions {
         javaMaxHeapSize rootProject.ext.android.javaMaxHeapSize
@@ -42,7 +41,9 @@ android {
             storePassword 'currency'
         }
     }
-
+    dataBinding {
+        enabled = true
+    }
     buildTypes {
         //调试版本，无混淆
         debug {

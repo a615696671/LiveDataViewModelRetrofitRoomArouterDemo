@@ -20,10 +20,10 @@ public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M
     @Override
     public void onResponse(Call<M> call, Response<M> response) {
         if(response!=null&&response.body()!=null){
-            if(response.body().getFlag()==0){
+            if(response.body().flag==0){
                 onSuccess(response.body());
             }else {
-                onThrowable(new Throwable(response.body().getFlag()+""),response.body().getMsg());
+                onThrowable(new Throwable(response.body().flag+""),response.body().msg);
             }
         }else{
             onThrowable(new Throwable("response on a null object reference"),"please  check url!");

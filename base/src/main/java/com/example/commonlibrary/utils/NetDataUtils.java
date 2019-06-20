@@ -1,5 +1,6 @@
-package com.example.commonlibrary;
+package com.example.commonlibrary.utils;
 
+import com.example.commonlibrary.BaseRequestParams;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

@@ -1,6 +1,9 @@
 package com.example.testmodule;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,16 +12,18 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 import com.amap.api.maps.MapView;
 import com.example.commonlibrary.ArouterConstant;
+import com.example.commonlibrary.BaseRequestParams;
+import com.example.commonlibrary.aac.BaseActivity;
+import com.example.commonlibrary.utils.NetDataUtils;
 
 @Route(path = ArouterConstant.TestActivity)
-public class TestActivity extends AppCompatActivity {
-//    private LoginViewModel loginViewModel;
+public class TestActivity extends BaseActivity {
     private MapView mMapView;
+    private LoginViewModel loginViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
         //获取地图控件引用
         mMapView = findViewById(R.id.map);
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
@@ -31,14 +36,22 @@ public class TestActivity extends AppCompatActivity {
 //                //未验证进度条，功能是是否OK
 //            }
 //        });
-//        loginViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
-//        loginViewModel.getLiveData().observe(this, new Observer<BaseBean>() {
-//            @Override
-//            public void onChanged(BaseBean baseBean) {
-//
-//            }
-//        });
 
+
+        loginViewModel = get(LoginViewModel.class);
+        loginViewModel.login(NetDataUtils.createJson(new BaseRequestParams() {
+            @Override
+            public int hashCode() {
+                return super.hashCode();
+            }
+        }));
+
+        loginViewModel.getPersonMutableLiveData().observe(this, new Observer<UserEntity>() {
+            @Override
+            public void onChanged(@Nullable UserEntity user) {
+
+            }
+        });
     }
     @Override
     protected void onDestroy() {
@@ -46,6 +59,12 @@ public class TestActivity extends AppCompatActivity {
         //在activity执行onDestroy时执行mMapView.onDestroy()，销毁地图
         mMapView.onDestroy();
     }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_test;
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
