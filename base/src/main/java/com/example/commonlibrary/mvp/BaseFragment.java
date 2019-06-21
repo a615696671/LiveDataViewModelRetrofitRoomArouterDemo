@@ -41,7 +41,6 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = initView(inflater, container, savedInstanceState);
-
         return mView;
     }
     @Override
