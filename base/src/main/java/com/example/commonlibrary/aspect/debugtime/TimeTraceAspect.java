@@ -11,10 +11,10 @@ import java.lang.reflect.Method;
 @Aspect
 public class TimeTraceAspect {
     private static final String POINTCUT_METHOD =
-            "execution(@com.example.commonlibrary.debugtime.DebugTraceTime * *(..))";
+            "execution(@com.example.commonlibrary.aspect.debugtime.DebugTraceTime * *(..))";
 
     private static final String POINTCUT_CONSTRUCTOR =
-            "execution(@com.example.commonlibrary.debugtime.DebugTraceTime *.new(..))";
+            "execution(@com.example.commonlibrary.aspect.debugtime.DebugTraceTime *.new(..))";
 
     @Pointcut(POINTCUT_METHOD)
     public void methodAnnotatedWithDebugTrace() {}

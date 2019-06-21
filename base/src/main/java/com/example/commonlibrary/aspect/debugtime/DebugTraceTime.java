@@ -9,5 +9,5 @@ import java.lang.annotation.Target;
 @Target({ ElementType.CONSTRUCTOR, ElementType.METHOD })
 public @interface DebugTraceTime {
     /* 点击间隔时间 */
-    Class<?extends  AroundUtils > value() default AroundUtils.class;
+    Class<?extends  AroundUtils > value() default TimeAround.class;
 }

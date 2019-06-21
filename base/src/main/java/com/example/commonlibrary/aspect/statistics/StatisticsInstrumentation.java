@@ -11,7 +11,7 @@ public class StatisticsInstrumentation {
 
     public static final String TAG = "Statistics";
 
-    @Around("execution(@com.example.commonlibrary.statistics.Statistics * *(..)) && @annotation(statistics)")
+    @Around("execution(@com.example.commonlibrary.aspect.statistics.Statistics * *(..)) && @annotation(statistics)")
     public void aroundJoinPoint(ProceedingJoinPoint joinPoint, Statistics statistics) throws Throwable {
         calculate(statistics);
         joinPoint.proceed();//执行原方法
