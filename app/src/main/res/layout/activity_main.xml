@@ -13,5 +13,9 @@
         android:id="@+id/btn1"
         android:layout_width="match_parent"
         android:layout_height="45dp" />
-
+    <Button
+        android:text="dataBinding用法"
+        android:id="@+id/btn2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
 </LinearLayout>

@@ -2,7 +2,6 @@ package com.example.common;
 
 import androidx.lifecycle.Observer;
 
-import com.example.commonlibrary.ContentValue;
 /**
  * 创建日期：2018/1/30 0030 下午 4:48
  * @author Eddy.Kang

@@ -1,10 +1,11 @@
-package com.example.testmodule;
+package com.example.testmodule.livedata;
+
 
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
 import com.example.common.BaseBean;
+
 
 @Entity
 public class UserEntity  extends BaseBean {
@@ -67,9 +68,9 @@ public class UserEntity  extends BaseBean {
     public String getNickname() {
         return nickname;
     }
-
     public void setNickname(String nickname) {
         this.nickname = nickname;
+
     }
 
     public String getPhone() {

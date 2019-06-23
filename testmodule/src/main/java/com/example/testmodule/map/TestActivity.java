@@ -1,7 +1,4 @@
-package com.example.testmodule;
-
-import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
+package com.example.testmodule.map;
 
 import android.os.Bundle;
 
@@ -10,8 +7,10 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 
 
 import com.amap.api.maps.MapView;
-import com.example.commonlibrary.ArouterConstant;
+import com.example.common.ArouterConstant;
 import com.example.commonlibrary.aac.BaseActivity;
+import com.example.testmodule.R;
+
 @Route(path = ArouterConstant.TestActivity)
 public class TestActivity extends BaseActivity {
     private MapView mMapView;
@@ -24,15 +23,6 @@ public class TestActivity extends BaseActivity {
         mMapView = findViewById(R.id.map);
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
          mMapView.onCreate(savedInstanceState);
-//        DownLoadUtils downLoadUtils=new DownLoadUtils();
-//        downLoadUtils.installApk(this);
-//        downLoadUtils.setmDownLoadListener(new DownLoadUtils.DownLoadListener() {
-//            @Override
-//            public void onDownLoadListener(int progress) {
-//                //未验证进度条，功能是是否OK
-//            }
-//        });
-
     }
     @Override
     protected void onDestroy() {

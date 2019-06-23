@@ -1,28 +1,10 @@
 package com.example.commonlibrary.http;
 
 
-import com.example.commonlibrary.ContentValue;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-
-import java.io.CharArrayReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Type;
 
 import okhttp3.OkHttpClient;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -33,13 +15,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitHelper {
-
+    private  static final String BASE_URL="http://114.115.184.90:8080/";
     private  final  OkHttpClient mClient;
     private volatile Retrofit mRetrofit;
     private static final Gson gson = new GsonBuilder().serializeNulls().create();
 
     private RetrofitHelper() {
-
         mClient = OkHttpClientHelper.getInstance().getOkHttpClient();
     }
 
@@ -61,7 +42,7 @@ public class RetrofitHelper {
     public Retrofit getRetrofit() {
         if (mRetrofit == null) {
             mRetrofit = new Retrofit.Builder()
-                    .baseUrl(ContentValue.BASE_URL)
+                    .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))  //添加Gson支持
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())  //添加RxJava支持
                     .client(mClient)                                            //关联okhttp

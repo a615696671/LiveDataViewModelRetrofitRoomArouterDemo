@@ -1,11 +1,9 @@
 package com.example.common;
 
 
-import com.example.commonlibrary.ContentValue;
 import com.example.commonlibrary.utils.LogUtils;
 
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 
 import retrofit2.Call;
 import retrofit2.Callback;

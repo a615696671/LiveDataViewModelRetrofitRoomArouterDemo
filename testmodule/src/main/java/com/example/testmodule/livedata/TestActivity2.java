@@ -1,4 +1,4 @@
-package com.example.testmodule;
+package com.example.testmodule.livedata;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,8 +8,9 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.common.ObserverLiveData;
-import com.example.commonlibrary.ArouterConstant;
+import com.example.common.ArouterConstant;
 import com.example.commonlibrary.aac.BaseActivity;
+import com.example.testmodule.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 
@@ -35,7 +36,6 @@ public class TestActivity2 extends BaseActivity {
             public void onChangedFailure(UserEntity throwable) {
                 Toast.makeText(TestActivity2.this, throwable.message, Toast.LENGTH_SHORT).show();
             }
-
         });
     }
 

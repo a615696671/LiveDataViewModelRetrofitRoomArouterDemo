@@ -5,8 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
-        <activity android:name=".TestActivity2"></activity>
-        <activity android:name=".TestActivity" />
+        <activity android:name=".databinding.TestActivity3"></activity>
+        <activity android:name=".livedata.TestActivity2" />
+        <activity android:name=".map.TestActivity" />
     </application>
 
 </manifest>
