@@ -96,7 +96,7 @@ public class LocationService extends Service {
                                 if(null!=locationData){
                                     locationData.setCityCode(cityCode);
                                     LogUtils.e(TAG,locationData.toString());
-                                    if(arouterCommonEditProvider.saveLocationData(locationData)){
+                                    if(!arouterCommonEditProvider.saveLocationData(locationData)){
                                         //存储失败
                                         LogUtils.e(TAG,"LocationService GetLocation save data failure" );
                                     }

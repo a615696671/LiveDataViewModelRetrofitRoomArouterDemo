@@ -70,12 +70,12 @@ android {
         develop {
             buildConfigField "int", "ENV_TYPE", "0"
             applicationId rootProject.ext.android.applicationIdDevelop
-            manifestPlaceholders =[
-                    app_name:  rootProject.ext.keyId.app_name,
-                    app_icon:  rootProject.ext.keyId.app_icon,
-                    ftpKey: rootProject.ext.keyId.ftpKey,
-                    bugly:rootProject.ext.keyId.bugly,
-                    map:rootProject.ext.keyId.map
+            manifestPlaceholders = [
+                    app_name: rootProject.ext.keyId.app_name,
+                    app_icon: rootProject.ext.keyId.app_icon,
+                    ftpKey  : rootProject.ext.keyId.ftpKey,
+                    bugly   : rootProject.ext.keyId.bugly,
+                    map     : rootProject.ext.keyId.map
 
             ]
         }
@@ -97,4 +97,3 @@ dependencies {
     implementation rootProject.ext.dependencies.appcompat
     api project(':testmodule')
 }
-
