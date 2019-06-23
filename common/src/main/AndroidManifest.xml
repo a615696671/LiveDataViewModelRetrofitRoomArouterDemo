@@ -25,5 +25,11 @@
         </provider>
 
         <meta-data android:name="com.amap.api.v2.apikey" android:value="${map}"/>
+        <!-- 高德地图开发者申请的key -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="${map}"/>
+        <service android:name="com.amap.api.location.APSService"/>
+        <service android:name=".map.LocationService"/>
     </application>
 </manifest>
