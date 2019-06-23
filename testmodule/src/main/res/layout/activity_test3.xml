@@ -7,9 +7,20 @@
                 type="UserEntity" />
         </data>
 
-    <Button
-        android:onClick="onClick"
-        android:text="@{userEntity.nickname}"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+ <LinearLayout
+     android:orientation="vertical"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+     <Button
+         android:onClick="onClick"
+         android:text="@{userEntity.nickname}"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" />
+
+     <Button
+         android:id="@+id/btn1"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" />
+
+ </LinearLayout>
 </layout>

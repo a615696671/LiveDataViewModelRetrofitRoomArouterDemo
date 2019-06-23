@@ -2,21 +2,21 @@ package com.example.common.map;
 
 import android.app.Service;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Binder;
 import android.os.IBinder;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
-
-
+import com.example.common.ArouterConstant;
+import com.example.common.alibabaprovider.ArouterCommonEditProvider;
+import com.example.common.alibabaprovider.ArouterCommonProvider;
+import com.example.commonlibrary.utils.LogUtils;
 
 /**
  * 创建日期：2017/12/17
@@ -33,7 +33,8 @@ public class LocationService extends Service {
     private AMapLocationClientOption mLocationOption;
     private double latitude, longitude;
     private AMapLocationListener mLocationListener;
-    public static final String LOCALTION="LOCATION";
+
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -48,6 +49,7 @@ public class LocationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
         getLocation();
         return super.onStartCommand(intent, flags, startId);
     }
@@ -79,6 +81,9 @@ public class LocationService extends Service {
                         locationServiceBean.setDistrict(amapLocation.getDistrict());
                         locationServiceBean.setAoiName(amapLocation.getAoiName());
                         locationServiceBean.setCurrentPosition(amapLocation.getDistrict() + amapLocation.getAoiName());
+                        final ArouterCommonEditProvider arouterCommonEditProvider = (ArouterCommonEditProvider) ARouter.getInstance().build(ArouterConstant.ArouterCommonEditProviderImpl).navigation();
+                        arouterCommonEditProvider.saveLocationData(locationServiceBean);
+                        LogUtils.e(TAG, locationServiceBean.toString());
                         GetLocation  location=new GetLocation();
                         location.setL(new GetLocation.OnLocationSuccess() {
                             @Override
@@ -87,7 +92,16 @@ public class LocationService extends Service {
                             }
                             @Override
                             public void getLoacalCityCode(String cityCode) {
-
+                                ArouterCommonProvider arouterCommonProvider  = (ArouterCommonProvider) ARouter.getInstance().build(ArouterConstant.ArouterCommonProviderImpl).navigation();
+                                LocationServiceBean locationData = arouterCommonProvider.getLocationData();
+                                if(null!=locationData){
+                                    locationData.setCityCode(cityCode);
+                                    LogUtils.e(TAG,locationData.toString());
+                                    if(arouterCommonEditProvider.saveLocationData(locationData)){
+                                        //存储失败
+                                        LogUtils.e(TAG,"LocationService GetLocation save data failure" );
+                                    }
+                                }
                             }
                             @Override
                             public void getLocationError() {

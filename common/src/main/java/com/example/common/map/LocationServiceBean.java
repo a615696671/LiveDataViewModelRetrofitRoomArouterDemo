@@ -1,10 +1,21 @@
 package com.example.common.map;
 
 
+import java.io.Serializable;
+import java.util.Map;
 
-public class LocationServiceBean {
+public class LocationServiceBean implements Serializable {
     String  District, AoiName, longitude, Address, currentCity, currentPosition, latitude,pro,adCode;
-String cityCode;
+    String cityCode;
+    private Map<String,String>  map;//预留数据存储
+
+    public Map<String,String> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String,String> map) {
+        this.map = map;
+    }
 
     public String getCityCode() {
         return cityCode;
@@ -96,6 +107,10 @@ String cityCode;
                 ", currentCity='" + currentCity + '\'' +
                 ", currentPosition='" + currentPosition + '\'' +
                 ", latitude='" + latitude + '\'' +
+                ", pro='" + pro + '\'' +
+                ", adCode='" + adCode + '\'' +
+                ", cityCode='" + cityCode + '\'' +
+                ", map=" + map +
                 '}';
     }
 }
