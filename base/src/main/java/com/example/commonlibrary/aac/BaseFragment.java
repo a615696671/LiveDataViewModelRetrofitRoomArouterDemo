@@ -1,5 +1,6 @@
 package com.example.commonlibrary.aac;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -10,6 +11,14 @@ import androidx.lifecycle.ViewModelProviders;
 
 public class BaseFragment extends Fragment {
     private ViewModelProvider viewModelProvider;
+    private Context  mContext;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext=context;
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

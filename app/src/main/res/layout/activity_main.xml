@@ -3,19 +3,17 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
-    <Button
-        android:text="地图测试"
-        android:id="@+id/btn"
+    <FrameLayout
+        android:layout_above="@+id/bottom_navigation_bar"
+        android:id="@+id/main_content"
         android:layout_width="match_parent"
-        android:layout_height="45dp" />
-    <Button
-        android:text="RecyclerView刷新"
-        android:id="@+id/btn1"
-        android:layout_width="match_parent"
-        android:layout_height="45dp" />
-    <Button
-        android:text="dataBinding用法"
-        android:id="@+id/btn2"
-        android:layout_width="match_parent"
-        android:layout_height="45dp" />
+        android:layout_height="match_parent" >
+    </FrameLayout>
+    <!--<com.ashokvarma.bottomnavigation.BottomNavigationBar-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:background="@color/common_white"-->
+        <!--android:id="@+id/bottom_navigation_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"/>-->
 </LinearLayout>

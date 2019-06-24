@@ -14,10 +14,10 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
-public abstract  class BaseDataBindFragment extends Fragment {
+public abstract  class BaseDataBindFragment<T extends ViewDataBinding> extends Fragment {
     private ViewModelProvider viewModelProvider;
     protected ViewDataBinding dataBind;
-
+    protected  View  mView;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +38,12 @@ public abstract  class BaseDataBindFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         dataBind = DataBindingUtil.inflate(inflater,getLayoutId(), container, false);
         return dataBind.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        this.mView=view;
     }
 
     /**

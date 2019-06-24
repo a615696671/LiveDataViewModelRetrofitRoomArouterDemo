@@ -1,43 +1,112 @@
 package com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo;
-
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.FrameLayout;
+
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.common.ArouterConstant;
-import com.example.commonlibrary.aspect.debugtime.DebugTraceTime;
-import com.example.commonlibrary.aspect.singleclick.SingleClick;
-import com.example.commonlibrary.aspect.statistics.Statistics;
-import com.example.commonlibrary.aspect.statistics.StatisticsTab;
 
+import com.example.common.ArouterConstant;
+import com.example.commonlibrary.aac.BaseActivity;
+
+//implements BottomNavigationBar.OnTabSelectedListener
 @Route(path = ArouterConstant.MainActivity)
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity
+{
+//    BottomNavigationBar bottomNavigationBar;
+    FrameLayout mainContent;
+    String[] bottomText;
+    private MainViewModel mainViewModel;
+    private Fragment  currentFragment;
+    private int  currentFragmentIndex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
-             @Statistics(function = StatisticsTab.LOGIN)
-             @DebugTraceTime
-             @SingleClick
-             @Override
-             public void onClick(View view) {
-                 ARouter.getInstance().build(ArouterConstant.TestActivity).navigation();
-             }
-         });
-        findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
+        mainContent=  findViewById(R.id.main_content);
+//        bottomNavigationBar=findViewById(R.id.bottom_navigation_bar);
+//        bottomText = getResources().getStringArray(R.array.app_bottom_navigation_bar);
+//        bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
+//        bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_DEFAULT);
+//        bottomNavigationBar
+//                .addItem(new BottomNavigationItem(R.mipmap.app_icon, bottomText[0]).
+//                        setInActiveColor(ContextCompat.getColor(mContext,R.color.colorPrimary))
+//                        .setActiveColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark)).
+//                                setInactiveIconResource(R.mipmap.app_icon))
+//                .setFirstSelectedPosition(0)
+//                .initialise();
+//           bottomNavigationBar.setTabSelectedListener(this);
+           mainViewModel = get(MainViewModel.class);
+           currentFragmentIndex=0;
+           mainViewModel.getFragment(ArouterConstant.TestFragment,0);
+           mainViewModel.getLoginMutableLiveData().observe(this, new Observer<Fragment>() {
             @Override
-            public void onClick(View view) {
-                ARouter.getInstance().build(ArouterConstant.TestActivity2).navigation();
+            public void onChanged(Fragment fragment) {
+                if (currentFragment != fragment) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    if (!fragment.isAdded()) {
+                        //先判断是否被add过
+                        if (currentFragment != null) {
+                            transaction.hide(currentFragment);
+                        }
+                        if (fragment != null) {
+                            transaction.add(R.id.main_content, fragment).commitAllowingStateLoss();
+                        }
+                    } else {
+                        if (currentFragment != null) {
+                            transaction.hide(currentFragment);
+                        }
+                        if (fragment != null) {
+                            transaction.show(fragment).commitAllowingStateLoss();
+                        }
+                    }
+                    currentFragment=fragment;
+                }
+
             }
         });
-      findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              ARouter.getInstance().build(ArouterConstant.TestActivity3).navigation();
-          }
-      });
     }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+
+
+
+
+
+//
+//    @Override
+//    public void onTabSelected(int position) {
+//        switch (position) {
+//            case 0:
+//                mainViewModel.getFragment(ArouterConstant.TestFragment,0 );
+//                break;
+//            case 1:
+//
+//                break;
+//            case 2:
+//
+//                break;
+//            case 3:
+//
+//                break;
+//        }
+//        currentFragmentIndex = position;
+//    }
+//
+//    @Override
+//    public void onTabUnselected(int position) {
+//
+//    }
+//
+//    @Override
+//    public void onTabReselected(int position) {
+//
+//    }
+
 }

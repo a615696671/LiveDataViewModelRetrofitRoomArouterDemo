@@ -13,6 +13,7 @@ import androidx.multidex.MultiDex;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.common.map.LocationService;
 import com.example.commonlibrary.ActivityLifeCallBack;
+import com.example.commonlibrary.domain.executor.Executor;
 import com.example.commonlibrary.domain.executor.impl.ThreadExecutor;
 import com.example.commonlibrary.domain.interactors.base.AbstractInteractor;
 import com.example.commonlibrary.domain.threading.MainThreadImpl;
@@ -39,9 +40,10 @@ public class BaseApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        ThreadExecutor.getInstance().execute(new AbstractInteractor(ThreadExecutor.getInstance(), MainThreadImpl.getInstance()) {
+        ThreadExecutor.getInstance().execute(new AbstractInteractor(new Executor() {
             @Override
-            public void run() {
+            public void execute(AbstractInteractor interactor) {
+                interactor.execute();
                 registerActivityLifecycleCallbacks(ActivityLifeCallBack.getActivityLifeCallBack());
                 SmartRefreshLayoutDefaultSetting.refreshLayoutDefaultSettingInit();
                 bindService(new Intent(getContext(), BaseApplication.class), serviceConnection, Context.BIND_AUTO_CREATE);
@@ -66,6 +68,10 @@ public class BaseApplication extends Application{
                             .penaltyLog()
                             .build());
                 }
+            }
+        }, MainThreadImpl.getInstance()) {
+            @Override
+            public void run() {
 
             }
         });

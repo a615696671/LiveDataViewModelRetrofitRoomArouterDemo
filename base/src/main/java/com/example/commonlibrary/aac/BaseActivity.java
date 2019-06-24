@@ -1,5 +1,6 @@
 package com.example.commonlibrary.aac;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -10,6 +11,14 @@ import androidx.lifecycle.ViewModelProviders;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private ViewModelProvider viewModelProvider;
+    protected Context mContext;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+        mContext=this;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
