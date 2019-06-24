@@ -11,4 +11,5 @@ public class ArouterConstant {
     public  static final String TestFragment="/testmodule/TestFragment";
 
     public  static final String MainActivity="/app/MainActivity";
+    public  static final String SplashActivity="/app/SplashActivity";
 }
