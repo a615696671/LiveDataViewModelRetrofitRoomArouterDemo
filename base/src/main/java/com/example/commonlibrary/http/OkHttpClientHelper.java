@@ -21,12 +21,9 @@ public class OkHttpClientHelper {
     private final static long TIMEOUT = 5000;  //超时时间
 
     private OkHttpClientHelper() {
-
         cache = CacheHelper.getInstance().getCache();
     }
-
     private static OkHttpClientHelper clientHelper;
-
     public static OkHttpClientHelper getInstance() {
         if (clientHelper == null) {
             synchronized (OkHttpClientHelper.class) {
@@ -64,8 +61,6 @@ public class OkHttpClientHelper {
                 logging.setLevel(HttpLoggingInterceptor.Level.BODY);
                 builder.addInterceptor(logging);
             }
-
-
 //            SSLContext sslContext = null;
 //            SSLSocketFactory sslSocketFactory;
 //            try {
