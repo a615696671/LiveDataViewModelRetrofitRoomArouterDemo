@@ -28,8 +28,8 @@ public class RetrofitHelper {
     private final OkHttpClientHelper instance;
     private volatile Retrofit mRetrofit;
     private OkHttpClient.Builder builder;
+    private static RetrofitHelper helper;
     private static final Gson gson = new GsonBuilder().serializeNulls().create();
-
     private RetrofitHelper() {
         cache = CacheHelper.getInstance().getCache();
         instance = OkHttpClientHelper.getInstance();
@@ -46,13 +46,6 @@ public class RetrofitHelper {
         builder.addNetworkInterceptor(new RewriteCacheControlInterceptor());
         mClient = instance .getOkHttpClient();
     }
-
-
-
-
-
-
-    private static RetrofitHelper helper;
 
     //单例 保证对象唯一
     public static RetrofitHelper getInstance() {
