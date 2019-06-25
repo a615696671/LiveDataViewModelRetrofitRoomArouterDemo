@@ -1,7 +1,6 @@
 package com.example.common.alibabaprovider;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.common.ArouterConstant;
