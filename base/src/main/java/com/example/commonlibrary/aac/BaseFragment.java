@@ -9,7 +9,9 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
-public class BaseFragment extends Fragment {
+import com.example.commonlibrary.utils.LogUtils;
+
+public abstract  class BaseFragment extends Fragment {
     private ViewModelProvider viewModelProvider;
     private Context  mContext;
 
@@ -29,6 +31,18 @@ public class BaseFragment extends Fragment {
         super.onDestroy();
         viewModelProvider = null;
     }
+
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        LogUtils.d("TAG",  " setUserVisibleHint() --> isVisibleToUser = " + isVisibleToUser);
+        if (isVisibleToUser) {
+            initData();
+        }
+        super.setUserVisibleHint(isVisibleToUser);
+    }
+
+    protected  abstract  void  initData();
     /**
      * 创建ViewModel对象
      * @param clazz

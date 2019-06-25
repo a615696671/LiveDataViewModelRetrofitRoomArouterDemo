@@ -49,9 +49,16 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
         mPresent = createPresent();
         mPresent.attachView((V) this);
         initView();
-        initData();
         initListener();
 
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        if(isVisibleToUser){
+            initData();
+        }
+        super.setUserVisibleHint(isVisibleToUser);
     }
 
     @Override

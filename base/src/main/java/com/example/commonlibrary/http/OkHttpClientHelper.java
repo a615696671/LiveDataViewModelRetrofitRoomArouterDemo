@@ -1,6 +1,7 @@
 package com.example.commonlibrary.http;
 
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.commonlibrary.BuildConfig;
 
 import java.util.concurrent.TimeUnit;
@@ -60,6 +61,7 @@ public class OkHttpClientHelper {
                 HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
                 logging.setLevel(HttpLoggingInterceptor.Level.BODY);
                 builder.addInterceptor(logging);
+
             }
 //            SSLContext sslContext = null;
 //            SSLSocketFactory sslSocketFactory;
@@ -72,7 +74,6 @@ public class OkHttpClientHelper {
 //            } catch (KeyManagementException e) {
 //                e.printStackTrace();
 //            }
-
             mClient = builder.connectTimeout(TIMEOUT, TimeUnit.SECONDS)
                     .readTimeout(TIMEOUT, TimeUnit.SECONDS)
                     .writeTimeout(TIMEOUT, TimeUnit.SECONDS)

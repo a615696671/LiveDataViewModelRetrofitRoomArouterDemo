@@ -14,6 +14,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.commonlibrary.utils.LogUtils;
+
 public abstract  class BaseDataBindFragment<T extends ViewDataBinding> extends Fragment {
     private ViewModelProvider viewModelProvider;
     protected ViewDataBinding dataBind;
@@ -61,6 +63,17 @@ public abstract  class BaseDataBindFragment<T extends ViewDataBinding> extends F
     private ViewModelProvider getViewModelProvider(){
         return ViewModelProviders.of(this);
     }
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        LogUtils.d("TAG",  " setUserVisibleHint() --> isVisibleToUser = " + isVisibleToUser);
+        if (isVisibleToUser) {
+            //懒加载
+            initData();
+        }
+        super.setUserVisibleHint(isVisibleToUser);
+    }
+
+    protected  abstract  void  initData();
 
     protected  abstract  int getLayoutId();
 }

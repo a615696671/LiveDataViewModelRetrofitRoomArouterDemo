@@ -1,8 +1,8 @@
 package com.example.common;
 
 public class ArouterConstant {
+    public  static final String RewriteCacheControlInterceptor="/common/RewriteCacheControlInterceptor";
     public  static final String ArouterCommonEditProviderImpl="/common/ArouterCommonEditProviderImpl";
-
     public  static final String ArouterCommonProviderImpl="/common/ArouterCommonProviderImpl";
 
     public  static final String TestActivity="/testmodule/Testctivity";

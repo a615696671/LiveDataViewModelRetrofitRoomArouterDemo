@@ -22,4 +22,10 @@ public class TestFragment extends BaseDataBindFragment<TestTestFragmentLayoutBin
         super.onViewCreated(view, savedInstanceState);
 
     }
+
+    @Override
+    protected void initData() {
+
+
+    }
 }
