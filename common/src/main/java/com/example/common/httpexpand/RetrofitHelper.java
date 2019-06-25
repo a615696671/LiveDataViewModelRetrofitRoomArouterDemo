@@ -1,10 +1,18 @@
-package com.example.commonlibrary.http;
+package com.example.common.httpexpand;
 
 
+import com.example.common.ContentValue;
+import com.example.commonlibrary.BuildConfig;
+import com.example.commonlibrary.http.CacheHelper;
+import com.example.commonlibrary.http.OkHttpClientHelper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.Cache;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -15,14 +23,35 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitHelper {
-    private  static final String BASE_URL="http://114.115.184.90:8080/";
     private  final  OkHttpClient mClient;
+    private final Cache cache;
+    private final static long TIMEOUT =30000;  //超时时间
+    private final OkHttpClientHelper instance;
     private volatile Retrofit mRetrofit;
+    private OkHttpClient.Builder builder;
     private static final Gson gson = new GsonBuilder().serializeNulls().create();
 
     private RetrofitHelper() {
-        mClient = OkHttpClientHelper.getInstance().getOkHttpClient();
+        cache = CacheHelper.getInstance().getCache();
+        instance = OkHttpClientHelper.getInstance();
+        builder= instance.getOkHttpClientBuilder();
+        if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+            builder.addInterceptor(logging);
+        }
+        builder.connectTimeout(TIMEOUT, TimeUnit.SECONDS)
+                .readTimeout(TIMEOUT, TimeUnit.SECONDS)
+                .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
+                .cache(cache);
+        builder.addNetworkInterceptor(new RewriteCacheControlInterceptor());
+        mClient = instance .getOkHttpClient();
     }
+
+
+
+
+
 
     private static RetrofitHelper helper;
 
@@ -42,7 +71,7 @@ public class RetrofitHelper {
     public Retrofit getRetrofit() {
         if (mRetrofit == null) {
             mRetrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(ContentValue.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))  //添加Gson支持
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())  //添加RxJava支持
                     .client(mClient)                                            //关联okhttp
