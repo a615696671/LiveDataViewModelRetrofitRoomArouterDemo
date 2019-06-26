@@ -6,12 +6,11 @@ import android.os.Bundle;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.common.ArouterConstant;
-import com.example.commonlibrary.aac.BaseActivity;
-import com.example.commonlibrary.domain.executor.Executor;
-import com.example.commonlibrary.domain.executor.impl.ThreadExecutor;
-import com.example.commonlibrary.domain.interactors.base.AbstractInteractor;
-import com.example.commonlibrary.domain.threading.MainThreadImpl;
-import com.example.commonlibrary.mvp.CheckPermissionsActivity;
+import com.example.base.domain.executor.Executor;
+import com.example.base.domain.executor.impl.ThreadExecutor;
+import com.example.base.domain.interactors.base.AbstractInteractor;
+import com.example.base.domain.threading.MainThreadImpl;
+import com.example.base.mvp.CheckPermissionsActivity;
 
 @Route(path = ArouterConstant.SplashActivity)
 public class SplashActivity extends CheckPermissionsActivity {

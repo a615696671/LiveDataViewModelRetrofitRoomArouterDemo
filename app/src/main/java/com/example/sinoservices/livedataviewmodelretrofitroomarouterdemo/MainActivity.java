@@ -2,7 +2,6 @@ package com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
@@ -10,7 +9,7 @@ import androidx.lifecycle.Observer;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import com.example.common.ArouterConstant;
-import com.example.commonlibrary.aac.BaseActivity;
+import com.example.base.aac.BaseActivity;
 
 //implements BottomNavigationBar.OnTabSelectedListener
 @Route(path = ArouterConstant.MainActivity)

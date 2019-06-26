@@ -11,7 +11,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.common.ArouterConstant;
 import com.example.common.alibabaprovider.ArouterCommonProvider;
 import com.example.common.map.LocationServiceBean;
-import com.example.commonlibrary.aac.BaseDataBindActivity;
+import com.example.base.aac.BaseDataBindActivity;
 import com.example.testmodule.R;
 import com.example.testmodule.livedata.UserEntity;
 

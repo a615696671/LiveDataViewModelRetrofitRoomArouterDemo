@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <com.example.commonlibrary.widget.MultiStateView
+  <com.example.base.widget.MultiStateView
         android:layout_width="match_parent"
         app:msv_errorView="@layout/common_error_view_layout"
         app:msv_emptyView="@layout/common_empty_view_layout"
@@ -34,5 +34,5 @@
                 android:layout_height="match_parent"/>
         </LinearLayout>
       </com.scwang.smartrefresh.layout.SmartRefreshLayout>
-    </com.example.commonlibrary.widget.MultiStateView>
+    </com.example.base.widget.MultiStateView>
 </LinearLayout>

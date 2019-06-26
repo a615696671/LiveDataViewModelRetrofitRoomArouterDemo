@@ -45,7 +45,6 @@ dependencies {
     api 'com.amap.api:location:latest.integration'
     api rootProject.ext.dependencies.crashreport_upgrade
     api rootProject.ext.dependencies. nativecrashreport
-//    api 'com.ashokvarma.android:bottom-navigation-bar:2.1.0'
     api project(':base')
 
 }

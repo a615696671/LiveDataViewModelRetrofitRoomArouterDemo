@@ -12,13 +12,13 @@ import androidx.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.common.map.LocationService;
-import com.example.commonlibrary.ActivityLifeCallBack;
-import com.example.commonlibrary.domain.executor.Executor;
-import com.example.commonlibrary.domain.executor.impl.ThreadExecutor;
-import com.example.commonlibrary.domain.interactors.base.AbstractInteractor;
-import com.example.commonlibrary.domain.threading.MainThreadImpl;
-import com.example.commonlibrary.utils.AppUtils;
-import com.example.commonlibrary.widget.SmartRefreshLayoutDefaultSetting;
+import com.example.base.ActivityLifeCallBack;
+import com.example.base.domain.executor.Executor;
+import com.example.base.domain.executor.impl.ThreadExecutor;
+import com.example.base.domain.interactors.base.AbstractInteractor;
+import com.example.base.domain.threading.MainThreadImpl;
+import com.example.base.utils.AppUtils;
+import com.example.base.widget.SmartRefreshLayoutDefaultSetting;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.Bugly;
 

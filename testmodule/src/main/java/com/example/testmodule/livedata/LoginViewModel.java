@@ -2,7 +2,7 @@ package com.example.testmodule.livedata;
 
 import com.example.common.RetrofitCallback;
 import com.example.common.httpexpand.RetrofitHelper;
-import com.example.commonlibrary.aac.BaseViewModel;
+import com.example.base.aac.BaseViewModel;
 import com.example.testmodule.ApiStore;
 
 import androidx.lifecycle.MutableLiveData;

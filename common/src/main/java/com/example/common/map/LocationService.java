@@ -16,7 +16,7 @@ import com.amap.api.location.AMapLocationListener;
 import com.example.common.ArouterConstant;
 import com.example.common.alibabaprovider.ArouterCommonEditProvider;
 import com.example.common.alibabaprovider.ArouterCommonProvider;
-import com.example.commonlibrary.utils.LogUtils;
+import com.example.base.utils.LogUtils;
 
 /**
  * 创建日期：2017/12/17

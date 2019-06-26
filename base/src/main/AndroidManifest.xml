@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.commonlibrary" >
+    package="com.example.base" >
 
     <uses-permission android:name="android.permission.READ_LOGS" />
     <!-- Optional for location -->
@@ -71,7 +71,7 @@
             android:value="${ftpKey}"/>
         <provider
             android:authorities="${applicationId}.provider"
-            android:name=".ftp.DownLoadProvider"
+            android:name="com.example.base.ftp.DownLoadProvider"
             android:exported="false"
             android:enabled="true"
             android:grantUriPermissions="true">

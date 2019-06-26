@@ -1,7 +1,7 @@
 package com.example.common;
 
 
-import com.example.commonlibrary.utils.LogUtils;
+import com.example.base.utils.LogUtils;
 
 import java.lang.reflect.ParameterizedType;
 

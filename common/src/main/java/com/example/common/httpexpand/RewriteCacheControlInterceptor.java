@@ -4,7 +4,7 @@ package com.example.common.httpexpand;
 import androidx.annotation.NonNull;
 
 import com.example.common.BaseApplication;
-import com.example.commonlibrary.utils.AppUtils;
+import com.example.base.utils.AppUtils;
 
 import java.io.IOException;
 

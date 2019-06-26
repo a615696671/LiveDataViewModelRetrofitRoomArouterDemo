@@ -1,6 +1,6 @@
 package com.example.testmodule.livedata;
 
-import com.example.commonlibrary.BaseRequestParams;
+import com.example.base.BaseRequestParams;
 
 public class LoginParams  implements BaseRequestParams {
     private String phone;

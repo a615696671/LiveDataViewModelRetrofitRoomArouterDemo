@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.common.ObserverLiveData;
 import com.example.common.ArouterConstant;
-import com.example.commonlibrary.aac.BaseActivity;
+import com.example.base.aac.BaseActivity;
 import com.example.testmodule.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 

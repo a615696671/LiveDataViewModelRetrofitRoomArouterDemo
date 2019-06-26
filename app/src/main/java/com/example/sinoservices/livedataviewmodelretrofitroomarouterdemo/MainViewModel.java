@@ -2,7 +2,7 @@ package com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
-import com.example.commonlibrary.aac.BaseViewModel;
+import com.example.base.aac.BaseViewModel;
 import com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo.main.IMainFragment;
 import com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo.main.MainFragmentImpl;
 

@@ -2,8 +2,8 @@ package com.example.common.httpexpand;
 
 
 import com.example.common.ContentValue;
-import com.example.commonlibrary.BuildConfig;
-import com.example.commonlibrary.http.OkHttpClientHelper;
+import com.example.base.BuildConfig;
+import com.example.base.http.OkHttpClientHelper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
