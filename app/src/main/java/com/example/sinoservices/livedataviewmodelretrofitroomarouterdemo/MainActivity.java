@@ -11,32 +11,22 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.common.ArouterConstant;
 import com.example.base.aac.BaseActivity;
 
-//implements BottomNavigationBar.OnTabSelectedListener
+
 @Route(path = ArouterConstant.MainActivity)
 public class MainActivity extends BaseActivity
 {
-//    BottomNavigationBar bottomNavigationBar;
+
     FrameLayout mainContent;
     String[] bottomText;
     private MainViewModel mainViewModel;
     private Fragment  currentFragment;
     private int  currentFragmentIndex;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mainContent=  findViewById(R.id.main_content);
-//        bottomNavigationBar=findViewById(R.id.bottom_navigation_bar);
-//        bottomText = getResources().getStringArray(R.array.app_bottom_navigation_bar);
-//        bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
-//        bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_DEFAULT);
-//        bottomNavigationBar
-//                .addItem(new BottomNavigationItem(R.mipmap.app_icon, bottomText[0]).
-//                        setInActiveColor(ContextCompat.getColor(mContext,R.color.colorPrimary))
-//                        .setActiveColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark)).
-//                                setInactiveIconResource(R.mipmap.app_icon))
-//                .setFirstSelectedPosition(0)
-//                .initialise();
-//           bottomNavigationBar.setTabSelectedListener(this);
+
            mainViewModel = get(MainViewModel.class);
            currentFragmentIndex=0;
            mainViewModel.getFragment(ArouterConstant.TestFragment,0);
@@ -77,35 +67,5 @@ public class MainActivity extends BaseActivity
 
 
 
-
-//
-//    @Override
-//    public void onTabSelected(int position) {
-//        switch (position) {
-//            case 0:
-//                mainViewModel.getFragment(ArouterConstant.TestFragment,0 );
-//                break;
-//            case 1:
-//
-//                break;
-//            case 2:
-//
-//                break;
-//            case 3:
-//
-//                break;
-//        }
-//        currentFragmentIndex = position;
-//    }
-//
-//    @Override
-//    public void onTabUnselected(int position) {
-//
-//    }
-//
-//    @Override
-//    public void onTabReselected(int position) {
-//
-//    }
 
 }
