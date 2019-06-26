@@ -9,7 +9,6 @@ public class FitterUtils {
      *Android8.0 新特性
      * manifest里同时设置android:screenOrientation="portrait"
      * android:windowIsTranslucent=“true”可出现崩溃
-     *
      * **/
     public  static  void  setRequestedOrientation(Activity activity){
         if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {

@@ -16,7 +16,7 @@ ext{
             applicationIdDevelop:'com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo',
             minifyEnabled:false,
             zipAlignEnabled:true,
-            shrinkResources:true,
+            shrinkResources:false,
             checkReleaseBuilds:true,
             abortOnError:true,
             dirs:'libs',
