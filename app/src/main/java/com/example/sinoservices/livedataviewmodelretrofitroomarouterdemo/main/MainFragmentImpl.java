@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainFragmentImpl implements IMainFragment {
-
     private Map<Integer, Fragment> mHashMap = new HashMap(16);
     public  Map getInstance() {
         if (mHashMap == null) {
