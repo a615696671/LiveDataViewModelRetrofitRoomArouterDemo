@@ -70,7 +70,6 @@ public class UserEntity  extends BaseBean {
     }
     public void setNickname(String nickname) {
         this.nickname = nickname;
-
     }
 
     public String getPhone() {

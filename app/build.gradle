@@ -22,10 +22,12 @@ android {
         flavorDimensions rootProject.ext.android.flavorDimensions
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable","room.schemaLocation":
+                        "$projectDir/schemas".toString()]
             }
         }
     }
+
     //在apk文件后边生成版本号信息
     android.applicationVariants.all {
         variant ->
@@ -58,7 +60,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    sourceSets {
+        //数据库概要、记录存放位置
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+    }
     lintOptions {
         checkReleaseBuilds rootProject.ext.android.checkReleaseBuilds
         abortOnError rootProject.ext.android.abortOnError
@@ -79,7 +84,6 @@ android {
 
             ]
         }
-
     }
     repositories {
         flatDir {

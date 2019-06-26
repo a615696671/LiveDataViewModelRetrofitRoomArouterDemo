@@ -25,8 +25,7 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mainContent=  findViewById(R.id.main_content);
-
+           mainContent=  findViewById(R.id.main_content);
            mainViewModel = get(MainViewModel.class);
            currentFragmentIndex=0;
            mainViewModel.getFragment(ArouterConstant.TestFragment,0);
@@ -53,7 +52,6 @@ public class MainActivity extends BaseActivity
                     }
                     currentFragment=fragment;
                 }
-
             }
         });
     }
@@ -62,10 +60,4 @@ public class MainActivity extends BaseActivity
     protected int getLayoutId() {
         return R.layout.activity_main;
     }
-
-
-
-
-
-
 }
