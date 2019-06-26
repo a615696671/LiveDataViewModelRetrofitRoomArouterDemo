@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
   <com.example.commonlibrary.widget.MultiStateView
         android:layout_width="match_parent"
+        app:msv_errorView="@layout/common_error_view_layout"
+        app:msv_emptyView="@layout/common_empty_view_layout"
+        app:msv_loadingView="@layout/common_loading_view_layout"
         android:layout_height="match_parent">
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"

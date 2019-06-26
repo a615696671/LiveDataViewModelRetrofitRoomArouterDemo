@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.commonlibrary.AppManager;
 import com.example.commonlibrary.R;
+import com.example.commonlibrary.utils.FitterUtils;
 
 import java.lang.reflect.Field;
 
@@ -39,6 +40,7 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FitterUtils.setRequestedOrientation(this);
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
         mPresent = createPresent();
@@ -101,7 +103,6 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
         fixInputMethodManagerLeak(this);
         dismissProgressDialog();
         progressDialog = null;
-        //将Activity实例从AppManager的堆栈中移除
         super.onDestroy();
     }
 

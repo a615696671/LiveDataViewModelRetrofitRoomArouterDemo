@@ -1,13 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.common" >
-
-    <application
-        android:networkSecurityConfig="@xml/common_network_security_config">
-        <!--9.0加的，哦哦-->
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
+    <application>
         <meta-data
             android:name="bugly"
             android:value="${bugly}"/>
@@ -21,13 +15,13 @@
             android:authorities="${applicationId}.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true"
+            android:enabled="true"
             tools:replace="name,authorities,exported,grantUriPermissions">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/common_file_paths"
                 tools:replace="name,resource"/>
         </provider>
-
         <meta-data android:name="com.amap.api.v2.apikey" android:value="${map}"/>
         <!-- 高德地图开发者申请的key -->
         <meta-data

@@ -11,13 +11,15 @@ import com.example.commonlibrary.domain.executor.Executor;
 import com.example.commonlibrary.domain.executor.impl.ThreadExecutor;
 import com.example.commonlibrary.domain.interactors.base.AbstractInteractor;
 import com.example.commonlibrary.domain.threading.MainThreadImpl;
+import com.example.commonlibrary.mvp.CheckPermissionsActivity;
+
 @Route(path = ArouterConstant.SplashActivity)
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends CheckPermissionsActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+          setContentView(R.layout.activity_splash);
     }
 
     @Override
@@ -47,8 +49,4 @@ public class SplashActivity extends BaseActivity {
         });
     }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_splash;
-    }
 }

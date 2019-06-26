@@ -2,6 +2,7 @@ package com.example.commonlibrary.aac;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -58,4 +59,15 @@ public abstract  class BaseFragment extends Fragment {
     private ViewModelProvider getViewModelProvider(){
         return ViewModelProviders.of(this);
     }
+    private Toast mToast;
+
+    public void showToast(Context context, String content) {
+        if (mToast == null) {
+            mToast = Toast.makeText(context, content, Toast.LENGTH_SHORT);
+        } else {
+            mToast.setText(content);
+        }
+        mToast.show();
+    }
+
 }

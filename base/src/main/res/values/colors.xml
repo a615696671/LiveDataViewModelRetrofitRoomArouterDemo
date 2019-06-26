@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <color name="common_bg_translucent">#00000000</color>
-
+    <color name="base_bg_translucent">#00000000</color>
 </resources>
