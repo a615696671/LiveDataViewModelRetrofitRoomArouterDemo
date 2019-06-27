@@ -111,11 +111,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         progressDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         progressDialog.getWindow().setDimAmount(0);
-        progressDialog.getWindow().setBackgroundDrawableResource(R.color.common_bg_translucent);
+        progressDialog.getWindow().setBackgroundDrawableResource(R.color.base_bg_translucent);
         if (!progressDialog.isShowing()) {
             progressDialog.show();
         }
-        progressDialog.setContentView(R.layout.common_loading_view_layout);
+        progressDialog.setContentView(R.layout.base_loading_view_layout);
         //progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);// 设置进度条的形式为圆形转动的进度条
         progressDialog.setCancelable(true);// 设置是否可以通过点击Back键取消
         progressDialog.setCanceledOnTouchOutside(false);// 设置在点击Dialog外是否取消Dialog进度条
