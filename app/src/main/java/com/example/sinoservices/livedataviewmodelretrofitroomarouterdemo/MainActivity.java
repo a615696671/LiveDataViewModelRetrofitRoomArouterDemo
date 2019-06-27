@@ -1,5 +1,6 @@
 package com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.fragment.app.Fragment;
@@ -13,8 +14,7 @@ import com.example.base.aac.BaseActivity;
 
 
 @Route(path = ArouterConstant.MainActivity)
-public class MainActivity extends BaseActivity
-{
+public class MainActivity extends BaseActivity  {
 
     FrameLayout mainContent;
     String[] bottomText;
@@ -22,14 +22,16 @@ public class MainActivity extends BaseActivity
     private Fragment  currentFragment;
     private int  currentFragmentIndex;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-           mainContent=  findViewById(R.id.main_content);
-           mainViewModel = get(MainViewModel.class);
-           currentFragmentIndex=0;
-           mainViewModel.getFragment(ArouterConstant.TestFragment,0);
-           mainViewModel.getLoginMutableLiveData().observe(this, new Observer<Fragment>() {
+        mainContent=  findViewById(R.id.main_content);
+        mainViewModel = get(MainViewModel.class);
+        currentFragmentIndex=0;
+        mainViewModel.getFragment(ArouterConstant.TestFragment,0);
+        mainViewModel.getLoginMutableLiveData().observe(this, new Observer<Fragment>() {
             @Override
             public void onChanged(Fragment fragment) {
                 if (currentFragment != fragment) {
@@ -60,4 +62,5 @@ public class MainActivity extends BaseActivity
     protected int getLayoutId() {
         return R.layout.activity_main;
     }
+
 }

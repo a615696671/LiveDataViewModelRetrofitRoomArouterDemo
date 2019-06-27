@@ -2,5 +2,5 @@
 <resources>
 
     <color name="common_white">#ffffffff</color>
-
+    <color name="common_themColorPrimaryDark">#ff5500</color>
 </resources>

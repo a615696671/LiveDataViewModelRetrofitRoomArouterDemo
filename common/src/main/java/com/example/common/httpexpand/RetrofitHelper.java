@@ -7,6 +7,7 @@ import com.example.base.http.OkHttpClientHelper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.net.Proxy;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -38,6 +39,8 @@ public class RetrofitHelper {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BODY);
             builder.addInterceptor(logging);
+        }else{
+            builder .proxy(Proxy.NO_PROXY);//设置代理防止抓包
         }
         builder.connectTimeout(TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(TIMEOUT, TimeUnit.SECONDS)
