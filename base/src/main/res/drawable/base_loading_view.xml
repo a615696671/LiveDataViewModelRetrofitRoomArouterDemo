@@ -12,8 +12,8 @@
         android:useLevel="false">
         <gradient
             android:centerY="0.50"
-            android:endColor="@color/common_themColorPrimaryDark"
-            android:startColor="@color/common_white"
+            android:endColor="@color/base_themColorPrimaryDark"
+            android:startColor="@color/base_white"
             android:type="sweep"
             android:useLevel="false" />
     </shape>

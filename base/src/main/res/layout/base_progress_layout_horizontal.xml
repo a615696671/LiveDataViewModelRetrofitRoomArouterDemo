@@ -8,8 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:minHeight="@dimen/common_1dp"
-        android:maxHeight="@dimen/common_1dp"
+        android:minHeight="@dimen/base_1dp"
+        android:maxHeight="@dimen/base_1dp"
         android:max="100"
         android:progressDrawable="@drawable/progressbar"
         android:progress="50" />

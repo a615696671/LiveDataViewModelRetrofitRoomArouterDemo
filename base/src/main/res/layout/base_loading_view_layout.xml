@@ -4,8 +4,8 @@
     android:layout_gravity="center"
     android:layout_height="wrap_content">
     <ProgressBar
-        android:layout_width="@dimen/common_40dp"
-        android:layout_height="@dimen/common_40dp"
+        android:layout_width="@dimen/base_40dp"
+        android:layout_height="@dimen/base_40dp"
         android:layout_gravity="center"
         android:indeterminateDrawable="@drawable/base_loading_view"
         />

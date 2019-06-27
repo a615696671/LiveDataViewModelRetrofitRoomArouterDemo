@@ -1,4 +1,4 @@
-package com.example.common;
+package com.example.base.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 
-
+import com.example.base.R;
 
 
 public class Html5WebView extends WebView {
