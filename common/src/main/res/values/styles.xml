@@ -5,33 +5,25 @@
     </style>
     <!--解决app启动白屏问题  -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimaryDark">@color/property_themColorPrimaryDark</item>
-        <item name="android:textColorPrimary">@color/property_themTextColor</item>
-        <item name="colorAccent">@color/property_ThemColorAccent</item>
+        <item name="colorPrimaryDark">@color/base_themColorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/base_themColorPrimaryDark</item>
+        <item name="colorAccent">@color/base_themColorPrimaryDark</item>
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:textSize">@dimen/property_themTextSize</item>
+        <item name="android:textSize">@dimen/common_size14</item>
         <item name="android:windowAnimationStyle">@style/ActivityInOutAnimation</item>
-        <item name="android:editTextColor">@color/property_themTextColor</item>
+        <item name="android:editTextColor">@color/base_themColorPrimaryDark</item>
     </style>
 
     <!--app启动白屏与第三放支付以及分享冲突处理的AppThemeShare-->
     <style name="AppThemeShare" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimaryDark">@color/property_themColorPrimaryDark</item>
-        <item name="android:textColorPrimary">@color/property_themTextColor</item>
-        <item name="colorAccent">@color/property_ThemColorAccent</item>
+        <item name="colorPrimaryDark">@color/base_themColorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/base_themColorPrimaryDark</item>
+        <item name="colorAccent">@color/base_themColorPrimaryDark</item>
         <item name="android:windowIsTranslucent">false</item>
-        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowBackground">@color/common_bg_translucent</item>
         <item name="android:windowAnimationStyle">@style/ActivityInOutAnimation</item>
-        <item name="android:textSize">@dimen/property_themTextSize</item>
-        <item name="android:editTextColor">@color/property_themTextColor</item>
-    </style>
-
-
-    <style name="MyDialog" parent="@android:style/Theme.Dialog">
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowFrame">@null</item><!--边框-->
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:windowBackground">@color/property_bg_translucent</item><!--背景透明-->
+        <item name="android:textSize">@dimen/common_size14</item>
+        <item name="android:editTextColor">@color/base_themColorPrimaryDark</item>
     </style>
 
 </resources>

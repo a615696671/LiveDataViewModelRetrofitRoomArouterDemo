@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="common_white">#ffffffff</color>
-    <color name="common_themColorPrimaryDark">#ff5500</color>
+<color name="common_bg_translucent">#00000000</color>
 </resources>

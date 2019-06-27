@@ -96,7 +96,7 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
         }
         progressDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         progressDialog.getWindow().setDimAmount(0);
-        progressDialog.getWindow().setBackgroundDrawableResource(R.color.common_bg_translucent);
+        progressDialog.getWindow().setBackgroundDrawableResource(R.color.base_bg_translucent);
         if (!progressDialog.isShowing()) {
             progressDialog.show();
         }

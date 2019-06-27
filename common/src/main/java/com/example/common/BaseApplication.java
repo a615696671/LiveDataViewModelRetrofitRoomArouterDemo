@@ -40,6 +40,9 @@ public class BaseApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+        ARouter.openLog();     // 打印日志  这两行必须写在init之前，否则这些配置在init过程中将无效
+        ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        ARouter.init(BaseApplication.this); // 尽可能早，推荐在Application中初始化
         ThreadExecutor.getInstance().execute(new AbstractInteractor(new Executor() {
             @Override
             public void execute(AbstractInteractor interactor) {
@@ -49,9 +52,10 @@ public class BaseApplication extends Application{
                 registerActivityLifecycleCallbacks(ActivityLifeCallBack.getActivityLifeCallBack());
                 SmartRefreshLayoutDefaultSetting.refreshLayoutDefaultSettingInit();
                 if (isDebug()) {
-                    ARouter.openLog();     // 打印日志  这两行必须写在init之前，否则这些配置在init过程中将无效
-                    ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-                    ARouter.init(BaseApplication.this); // 尽可能早，推荐在Application中初始化
+
+
+
+
                     String bugly =  AppUtils.getMetaDataApplication(context,"bugly");
                     Bugly.init(getApplicationContext(),bugly ,isDebug);
                     LeakCanary.install(BaseApplication.this);//内存泄漏检测
