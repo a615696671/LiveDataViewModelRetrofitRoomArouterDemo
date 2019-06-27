@@ -1,6 +1,5 @@
 package com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.fragment.app.Fragment;
