@@ -1,1 +1,1 @@
-include ':app', ':base', ':testmodule', ':common'
+include ':app', ':base', ':testmodule', ':common', ':CordovaLib'

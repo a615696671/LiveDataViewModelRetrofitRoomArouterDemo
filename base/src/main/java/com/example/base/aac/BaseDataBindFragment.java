@@ -1,5 +1,6 @@
 package com.example.base.aac;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,13 @@ public abstract  class BaseDataBindFragment<T extends ViewDataBinding> extends F
     private ViewModelProvider viewModelProvider;
     protected ViewDataBinding dataBind;
     protected  View  mView;
+    protected  Context mContext;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext=context;
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
