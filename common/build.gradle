@@ -47,5 +47,7 @@ dependencies {
     api rootProject.ext.dependencies. nativecrashreport
     api project(':base')
     api project(':CordovaLib')
+    api project(':openCVLibrary343')
+
 }
 
