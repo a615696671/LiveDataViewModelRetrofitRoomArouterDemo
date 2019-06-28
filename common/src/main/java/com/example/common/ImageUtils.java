@@ -13,6 +13,7 @@ public class ImageUtils {
       RequestOptions  options =new RequestOptions();
 //      options .placeholder(R.drawable.video_default).error(R.drawable.video_error)
       options .diskCacheStrategy(DiskCacheStrategy.ALL);
+
       Glide.with(context)
               .load(imageUrl) // 图片地址
               .apply(options) // 参数
