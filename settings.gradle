@@ -1,2 +1,1 @@
 include ':app', ':base', ':testmodule', ':common', ':CordovaLib'
-include ':openCVLibrary343'
