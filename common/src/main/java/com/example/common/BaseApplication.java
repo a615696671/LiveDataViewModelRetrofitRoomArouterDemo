@@ -43,6 +43,7 @@ public class BaseApplication extends Application{
         ARouter.openLog();     // 打印日志  这两行必须写在init之前，否则这些配置在init过程中将无效
         ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         ARouter.init(BaseApplication.this); // 尽可能早，推荐在Application中初始化
+        SmartRefreshLayoutDefaultSetting.refreshLayoutDefaultSettingInit();
         ThreadExecutor.getInstance().execute(new AbstractInteractor(new Executor() {
             @Override
             public void execute(AbstractInteractor interactor) {
@@ -50,12 +51,7 @@ public class BaseApplication extends Application{
                 bindService(new Intent(getContext(), BaseApplication.class), serviceConnection, Context.BIND_AUTO_CREATE);
                 startService(new Intent(getContext(), LocationService.class));//开启定位服务
                 registerActivityLifecycleCallbacks(ActivityLifeCallBack.getActivityLifeCallBack());
-                SmartRefreshLayoutDefaultSetting.refreshLayoutDefaultSettingInit();
                 if (isDebug()) {
-
-
-
-
                     String bugly =  AppUtils.getMetaDataApplication(context,"bugly");
                     Bugly.init(getApplicationContext(),bugly ,isDebug);
                     LeakCanary.install(BaseApplication.this);//内存泄漏检测

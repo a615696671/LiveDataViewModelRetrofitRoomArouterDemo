@@ -46,7 +46,7 @@ public class RetrofitHelper {
                 .readTimeout(TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
                 .cache(cache);
-        builder.addNetworkInterceptor(new RewriteCacheControlInterceptor());
+//        builder.addNetworkInterceptor();
         mClient = instance .getOkHttpClient();
     }
 

@@ -21,6 +21,7 @@ import retrofit2.Response;
 public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M> {
     public abstract void onSuccess(M model);
     public abstract void onThrowable(M  throwable);
+    private  String TAG="RetrofitCallback";
     @Override
     public void onResponse(Call<M> call, Response<M> response) {
         if(response!=null&&response.body()!=null){
@@ -33,9 +34,7 @@ public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M
         }else{
             try {
                 Class<M> mClass = (Class<M>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-                Throwable throwable = new Throwable("response on a null object reference");
                 M m = mClass.newInstance();
-                m.t=throwable;
                 m.msg="please  check url!";
                 m.flag= ContentValue.FLAG_FAILURE;
                 onThrowable(m);
@@ -50,11 +49,11 @@ public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M
     public void onFailure(Call<M> call, Throwable t) {
         try {
             Class<M> mClass = (Class<M>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-            LogUtils.d("mClass",mClass.getName());
+            LogUtils.d(TAG,mClass.getName());
             M m = mClass.newInstance();
-            LogUtils.d("mClass",m.getClass().getName());
+            LogUtils.d(TAG,m.getClass().getName());
             m.flag= ContentValue.FLAG_FAILURE;
-            m.t=t;
+            LogUtils.e(TAG,t.getStackTrace().toString());
             m.msg=t.getMessage();
             onThrowable(m);
         } catch (IllegalAccessException e) {

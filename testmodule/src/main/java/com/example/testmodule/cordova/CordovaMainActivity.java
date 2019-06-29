@@ -20,8 +20,12 @@
 package com.example.testmodule.cordova;
 
 import android.os.Bundle;
-import org.apache.cordova.*;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.common.ArouterConstant;
+
+import org.apache.cordova.*;
+@Route(path = ArouterConstant.CordovaMainActivity)
 public class CordovaMainActivity extends CordovaActivity
 {
     @Override
