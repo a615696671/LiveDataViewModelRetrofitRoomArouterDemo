@@ -25,14 +25,14 @@ public class TestFragment extends BaseDataBindFragment<TestTestFragmentLayoutBin
      mView.findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
+             ARouter.getInstance().build(ArouterConstant.CordovaMainActivity).navigation();
 
-             ARouter.getInstance().build(ArouterConstant.TestActivity).navigation();
          }
      });
         mView.findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build(ArouterConstant.CordovaMainActivity).navigation();
+                ARouter.getInstance().build(ArouterConstant.TestActivity).navigation();
             }
         });
         mView.findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
