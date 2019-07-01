@@ -31,5 +31,12 @@
         android:id="@+id/btn3"
         android:layout_width="match_parent"
         android:layout_height="45dp" />
+
+
+    <Button
+        android:text="jpegTest"
+        android:id="@+id/btn4"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
 </LinearLayout>
 </layout>

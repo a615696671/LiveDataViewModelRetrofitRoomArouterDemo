@@ -90,6 +90,11 @@ android {
             dirs rootProject.ext.android.dirs
         }
     }
+    sourceSets{
+        main{
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {

@@ -3,11 +3,12 @@
     package="com.example.testmodule">
 
     <application>
-        <activity android:name=".databinding.TestActivity3"></activity>
+        <activity android:name=".jpeg.JpegTestActivity"></activity>
+        <activity android:name=".databinding.TestActivity3" />
         <activity android:name=".livedata.TestActivity2" />
         <activity android:name=".map.TestActivity" />
-        <activity android:name=".cordova.CordovaMainActivity"/>
-        <activity android:name=".opencv.facedecete.FdActivity"/>
+        <activity android:name=".cordova.CordovaMainActivity" />
+        <activity android:name=".opencv.facedecete.FdActivity" />
     </application>
 
 </manifest>

@@ -14,15 +14,8 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
             }
         }
-        ndk{
-            abiFilters "armeabi","x86","x86_64","armeabi-v7a","armeabi-v8a","mips","mips64"
-        }
+
     }
-sourceSets {
-    main{
-        jniLibs.srcDirs=['libs']
-    }
-}
     buildTypes {
         release {
             minifyEnabled rootProject.ext.android.minifyEnabled
@@ -32,6 +25,7 @@ sourceSets {
     dataBinding {
         enabled = true
     }
+
 }
 
 dependencies {

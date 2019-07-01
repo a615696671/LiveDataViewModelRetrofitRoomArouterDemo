@@ -51,6 +51,15 @@ public class TestFragment extends BaseDataBindFragment<TestTestFragmentLayoutBin
                 ARouter.getInstance().build(ArouterConstant.TestActivity2).navigation();
             }
         });
+        mView.findViewById(R.id.btn4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ARouter.getInstance().build(ArouterConstant.JpegTestActivity).navigation();
+            }
+        });
+
+
     }
 
     @Override
