@@ -15,12 +15,11 @@ ext{
             dexOptions:"4g",
             applicationIdDevelop:'com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo',
             minifyEnabled:false,
-            zipAlignEnabled:true,
+            zipAlignEnabled:false,
             shrinkResources:false,
-            checkReleaseBuilds:true,
-            abortOnError:true,
-            dirs:'libs',
-            dataBinding:'true'
+            checkReleaseBuilds:false,
+            abortOnError:false,
+            dataBinding:true
     ]
 //    <!--用-拼接依次为地址,端口,账号,密码-->
     keyId=[

@@ -1,1 +1,1 @@
-第三方中的aar 存在SO文件导致jpeg无法编译进APK中 这里做的方式是将jpeg放入basemodule中
+第三方中的aar 存在SO文件导致jpeg无法编译进APK中
