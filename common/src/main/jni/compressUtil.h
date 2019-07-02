@@ -12,8 +12,8 @@ extern "C" {
  * Method:    compressBitmap
  * Signature: (ILjava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_example_base_jpeg_CompressUtil_compressBitmap
-  (JNIEnv *, jclass,jobject, jint, jstring);
+JNIEXPORT jint JNICALL Java_com_example_common_jpeg_CompressUtil_compressBitmap
+        (JNIEnv *, jclass,jobject ,jint, jstring);
 
 #ifdef __cplusplus
 }

@@ -23,7 +23,7 @@ android {
         }
     }
     dataBinding {
-        enabled = true
+        enabled = rootProject.ext.android.dataBinding
     }
 
 }
@@ -40,7 +40,7 @@ dependencies {
     api rootProject.ext.dependencies.lifecycleExtensions
     api rootProject.ext.dependencies.lifecycleViewmodel
     api rootProject.ext.dependencies.roomRuntime
-    androidTestImplementation "android.arch.persistence.room:testing:1.1.1"
+    androidTestImplementation 'androidx.room:room-testing:2.0.0'
     annotationProcessor rootProject.ext.dependencies.roomCompiler
     api rootProject.ext.dependencies.retrofit
     api rootProject.ext.dependencies.converterGson

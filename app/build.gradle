@@ -44,7 +44,7 @@ android {
         }
     }
     dataBinding {
-        enabled = true
+        enabled = rootProject.ext.android.dataBinding
     }
     buildTypes {
         //调试版本，无混淆
@@ -85,16 +85,7 @@ android {
             ]
         }
     }
-    repositories {
-        flatDir {
-            dirs rootProject.ext.android.dirs
-        }
-    }
-    sourceSets{
-        main{
-            jniLibs.srcDirs = ['libs']
-        }
-    }
+
 }
 
 dependencies {

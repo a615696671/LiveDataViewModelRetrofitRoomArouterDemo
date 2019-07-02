@@ -93,7 +93,7 @@ const char *jstringToString(JNIEnv *env, jstring jstr) {
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_example_base_jpeg_CompressUtil_compressBitmap(JNIEnv *env, jclass,
+Java_com_example_common_jpeg_CompressUtil_compressBitmap(JNIEnv *env, jclass,
                                                               jobject bitmap, jint optimize,
                                                               jstring destFile_) {
     AndroidBitmapInfo androidBitmapInfo;

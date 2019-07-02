@@ -28,7 +28,7 @@ android {
     }
 
     dataBinding {
-        enabled = true
+        enabled = rootProject.ext.android.dataBinding
     }
 
 }

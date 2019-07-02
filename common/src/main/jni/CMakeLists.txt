@@ -1,6 +1,6 @@
 
 cmake_minimum_required(VERSION 3.6.0)
-set(distribution_DIR ../../../../libs)
+set(distribution_DIR ../../../../src/main/jniLibs)
 #添加lib，SHARED类型，是IMPORTED 引入的库
 add_library(libjpeg
         SHARED
