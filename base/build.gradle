@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs',include: ['*.jar'])
     api rootProject.ext.dependencies.constraintlayout
     annotationProcessor rootProject.ext.dependencies.arouterCompiler
     api rootProject.ext.dependencies.coreRuntime

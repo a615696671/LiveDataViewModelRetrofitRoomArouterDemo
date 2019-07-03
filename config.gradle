@@ -39,7 +39,6 @@ ext{
           constraintlayout:'androidx.constraintlayout:constraintlayout:2.0.0-beta1',
           //腾讯bugly
           crashreport_upgrade: 'com.tencent.bugly:crashreport_upgrade:latest.release',//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
-          nativecrashreport:'com.tencent.bugly:nativecrashreport:latest.release', //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
            //liveData
           lifecycleExtensions:"androidx.lifecycle:lifecycle-extensions:2.0.0",
           lifecycleViewmodel: "androidx.lifecycle:lifecycle-viewmodel:2.0.0",

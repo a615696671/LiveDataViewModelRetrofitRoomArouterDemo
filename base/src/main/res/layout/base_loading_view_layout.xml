@@ -9,5 +9,4 @@
         android:layout_gravity="center"
         android:indeterminateDrawable="@drawable/base_loading_view"
         />
-
 </RelativeLayout>

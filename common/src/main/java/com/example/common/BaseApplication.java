@@ -22,6 +22,7 @@ import com.example.base.widget.SmartRefreshLayoutDefaultSetting;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.Bugly;
 
+
 public class BaseApplication extends Application{
     private static  boolean isDebug=true;
     private static Context  context;
