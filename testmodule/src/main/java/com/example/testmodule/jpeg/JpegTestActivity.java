@@ -46,5 +46,4 @@ public void compressNative(View view){
      String result = getSaveLocation() + "/compress.png";
      CompressUtil.compressBitmap(this.bitmap, qu, result);
 }
-
 }

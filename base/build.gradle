@@ -25,39 +25,54 @@ android {
     dataBinding {
         enabled = rootProject.ext.android.dataBinding
     }
-
+    compileOptions {
+        incremental true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs',include: ['*.jar'])
     api rootProject.ext.dependencies.constraintlayout
-    annotationProcessor rootProject.ext.dependencies.arouterCompiler
-    api rootProject.ext.dependencies.coreRuntime
     api rootProject.ext.dependencies.appcompat
-    testImplementation rootProject.ext.dependencies.junit
+    api rootProject.ext.dependencies.recyclerview
     androidTestImplementation rootProject.ext.dependencies.runner
     androidTestImplementation rootProject.ext.dependencies.espresso
+    annotationProcessor rootProject.ext.dependencies.arouterCompiler
+    testImplementation rootProject.ext.dependencies.junit
+    //room
+    api rootProject.ext.dependencies.roomRuntime
+    annotationProcessor rootProject.ext.dependencies.roomCompiler
+    androidTestImplementation rootProject.ext.dependencies.roomTesting
+
+    //SmartRefreshLayout
+    api  rootProject.ext.dependencies.SmartRefreshLayout
+    api  rootProject.ext.dependencies.SmartRefreshHeader
+    //glide
+    api rootProject.ext.dependencies.glide
+    annotationProcessor rootProject.ext.dependencies.glideCompiler
+
+    //BaseRecyclerViewAdapterHelper
+    api rootProject.ext.dependencies.BaseRecyclerViewAdapterHelper
+    api rootProject.ext.dependencies. legacySupportV4
+    api rootProject.ext.dependencies.leakcanary
+    api rootProject.ext.dependencies.rxpermissions
+    //aspectjrt
+    api rootProject.ext.dependencies. aspectjrt
+    api rootProject.ext.dependencies.multidex
+    api rootProject.ext.dependencies.arouterApi
+    //liveData
     api rootProject.ext.dependencies.lifecycleExtensions
     api rootProject.ext.dependencies.lifecycleViewmodel
-    api rootProject.ext.dependencies.roomRuntime
-    androidTestImplementation 'androidx.room:room-testing:2.0.0'
-    annotationProcessor rootProject.ext.dependencies.roomCompiler
+    //okhttp的log信息
+    api rootProject.ext.dependencies. logginInterceptor
+    api rootProject.ext.dependencies.converterScalars
+    api rootProject.ext.dependencies.adapterRxjava
+    //retrofit
     api rootProject.ext.dependencies.retrofit
     api rootProject.ext.dependencies.converterGson
-    api rootProject.ext.dependencies.gson
-    api rootProject.ext.dependencies.adapterRxjava
-    api rootProject.ext.dependencies.logginInterceptor
-    api rootProject.ext.dependencies.converterScalars
-    api rootProject.ext.dependencies.arouterApi
-    api rootProject.ext.dependencies.multidex
-    api rootProject.ext.dependencies.aspectjrt
-    api rootProject.ext.dependencies.rxpermissions
+    api  rootProject.ext.dependencies.gson
     api files('libs/commons-net-3.6.jar')
-    api rootProject.ext.dependencies.leakcanary
-    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-11'
-    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-11'
-    api 'androidx.legacy:legacy-support-v4:1.0.0'
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45-androidx'
-    api 'com.github.bumptech.glide:glide:4.7.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+
 }
