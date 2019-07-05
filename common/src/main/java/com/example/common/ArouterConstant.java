@@ -8,6 +8,7 @@ public class ArouterConstant {
     public  static final String TestActivity="/testmodule/Testctivity";
 
     public  static final String JpegTestActivity="/testmodule/JpegTestActivity";
+    public  static final String BassdiffTestActivity="/testmodule/BassdiffTestActivity";
 
     public  static final String TestActivity2="/testmodule/Testctivity2";
     public  static final String TestActivity3="/testmodule/Testctivity3";

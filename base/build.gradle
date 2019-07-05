@@ -69,6 +69,7 @@ dependencies {
     api rootProject.ext.dependencies. logginInterceptor
     api rootProject.ext.dependencies.converterScalars
     api rootProject.ext.dependencies.adapterRxjava
+    api  rootProject.ext.dependencies.okhttp
     //retrofit
     api rootProject.ext.dependencies.retrofit
     api rootProject.ext.dependencies.converterGson
