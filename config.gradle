@@ -2,8 +2,8 @@ ext{
 
         android=[
             apkname:"测试工具",
-            versionCode:2,
-            versionName :"2.0",
+            versionCode:1,
+            versionName :"1.0",
             multiDexEnabled:true,
             buildToolsVersion:'27.0.3',
             testInstrumentationRunner:"androidx.test.runner.AndroidJUnitRunner",
