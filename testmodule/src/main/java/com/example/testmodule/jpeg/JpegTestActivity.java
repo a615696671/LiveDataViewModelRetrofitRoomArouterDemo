@@ -35,7 +35,7 @@ public class JpegTestActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         BitmapFactory.Options opt = new BitmapFactory.Options();
-        opt.inPreferredConfig = Bitmap.Config.RGB_565;
+        opt.inPreferredConfig = Bitmap.Config.ARGB_8888;
         opt.inPurgeable = true;
         opt.inInputShareable = true;
         bitmap = BitmapFactory.decodeStream(open,null,opt);

@@ -27,7 +27,7 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        jpeg-lib.cpp)
+        jpeg/jpeg-lib.cpp)
 
 
 find_library( # Sets the name of the path variable.
@@ -53,13 +53,11 @@ target_link_libraries( # Specifies the target library.
 
 
 #bassdiff
-set(bassdiff_DIR ../../../../src/main/cpp)
+set(bassdiff_DIR ./)
 add_library( # Sets the name of the library.
         bassdiff-lib
-
         # Sets the library as a shared library.
         SHARED
-
         # Provides a relative path to your source file(s).
        ${bassdiff_DIR}/bassdiff/bassdiffUtils.c)
 

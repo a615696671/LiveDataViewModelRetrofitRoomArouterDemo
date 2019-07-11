@@ -141,7 +141,6 @@ Java_com_example_common_jpeg_CompressUtil_compressBitmap(JNIEnv *env, jclass,
                 *data = r;
                 *(data + 1) = g;
                 *(data + 2) = b;
-
                 data += 3;
                 pixelsColor += 4;
 
