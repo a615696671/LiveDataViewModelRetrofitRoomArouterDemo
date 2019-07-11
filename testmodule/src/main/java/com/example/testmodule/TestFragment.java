@@ -24,11 +24,9 @@ public class TestFragment extends BaseDataBindFragment<TestTestFragmentLayoutBin
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-     mView.findViewById(R.id.btn1).setOnClickListener(view1 -> ARouter.getInstance().build(ArouterConstant.CordovaMainActivity).navigation());
+        mView.findViewById(R.id.btn1).setOnClickListener(view1 -> ARouter.getInstance().build(ArouterConstant.CordovaMainActivity).navigation());
         mView.findViewById(R.id.btn).setOnClickListener(view12 -> ARouter.getInstance().build(ArouterConstant.TestActivity).navigation());
         mView.findViewById(R.id.btn2).setOnClickListener(view13 -> ARouter.getInstance().build(ArouterConstant.TestActivity3).navigation());
-
-
         mView.findViewById(R.id.btn3).setOnClickListener(view14 -> ARouter.getInstance().build(ArouterConstant.TestActivity2).navigation());
         mView.findViewById(R.id.btn4).setOnClickListener(view15 -> ARouter.getInstance().build(ArouterConstant.JpegTestActivity).navigation());
         mView.findViewById(R.id.btn5).setOnClickListener(view16 -> ARouter.getInstance().build(ArouterConstant.BassdiffTestActivity).navigation());

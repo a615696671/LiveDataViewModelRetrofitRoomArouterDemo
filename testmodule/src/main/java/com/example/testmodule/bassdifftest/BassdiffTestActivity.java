@@ -28,14 +28,22 @@ import com.tencent.bugly.Bugly;
 @Route(path = ArouterConstant.BassdiffTestActivity)
 public class BassdiffTestActivity extends AppCompatActivity {
 
+//    //旧版本
+//    String old =getSaveLocation() + "/oldApk.apk";
+//    //新版本
+//    String newp = getSaveLocation()+ "/newApk.apk";
+//    //差分包
+//    String patch =getSaveLocation() + "/patchApk.patch";
+//    //旧版apk和差分包合并生成的新版apk
+//    String tmp = getSaveLocation()  + "/plusNewApk.apk";
     //旧版本
-    String old =getSaveLocation() + "/oldApk.apk";
+    String old =getSaveLocation() + "/old.txt";
     //新版本
-    String newp = getSaveLocation()+ "/newApk.apk";
+    String newp = getSaveLocation()+ "/new.txt";
     //差分包
-    String patch =getSaveLocation() + "/patchApk.patch";
+    String patch =getSaveLocation() + "/patch.patch";
     //旧版apk和差分包合并生成的新版apk
-    String tmp = getSaveLocation()  + "/plusNewApk.apk";
+    String tmp = getSaveLocation()  + "/plusTxt.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

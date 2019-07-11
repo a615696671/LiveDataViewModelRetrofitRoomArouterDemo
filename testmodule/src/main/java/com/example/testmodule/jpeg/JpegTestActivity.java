@@ -34,7 +34,11 @@ public class JpegTestActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        bitmap = BitmapFactory.decodeStream(open);
+        BitmapFactory.Options opt = new BitmapFactory.Options();
+        opt.inPreferredConfig = Bitmap.Config.RGB_565;
+        opt.inPurgeable = true;
+        opt.inInputShareable = true;
+        bitmap = BitmapFactory.decodeStream(open,null,opt);
         TextView sizeView = findViewById(R.id.tv);
         sizeView.setText(bitmap.getByteCount()+"");
     }
