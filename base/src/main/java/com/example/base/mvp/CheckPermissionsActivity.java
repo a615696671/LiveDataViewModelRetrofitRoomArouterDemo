@@ -45,7 +45,6 @@ public class CheckPermissionsActivity extends AppCompatActivity implements
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.READ_PHONE_STATE,
-            Manifest.permission.WRITE_SETTINGS
     };
 
     private static final int PERMISSON_REQUESTCODE = 0;
@@ -143,20 +142,10 @@ public class CheckPermissionsActivity extends AppCompatActivity implements
 
         // 拒绝, 退出应用
         builder.setNegativeButton(R.string.cancel,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
+                (dialog, which) -> finish());
 
         builder.setPositiveButton(R.string.setting,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startAppSettings();
-                    }
-                });
+                (dialog, which) -> startAppSettings());
 
         builder.setCancelable(false);
 
