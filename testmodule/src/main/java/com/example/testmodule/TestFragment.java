@@ -24,6 +24,10 @@ public class TestFragment extends BaseDataBindFragment<TestTestFragmentLayoutBin
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        
+        
+        //冲突修改
+        /***sssssssssssssssssssssssssssssssss**/
         mView.findViewById(R.id.btn1).setOnClickListener(view1 -> ARouter.getInstance().build(ArouterConstant.CordovaMainActivity).navigation());
         mView.findViewById(R.id.btn).setOnClickListener(view12 -> ARouter.getInstance().build(ArouterConstant.TestActivity).navigation());
         mView.findViewById(R.id.btn2).setOnClickListener(view13 -> ARouter.getInstance().build(ArouterConstant.TestActivity3).navigation());
