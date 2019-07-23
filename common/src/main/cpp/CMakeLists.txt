@@ -52,7 +52,7 @@ target_link_libraries( # Specifies the target library.
 
 
 
-#bassdiff
+#bassdiffzz
 set(bassdiff_DIR ./)
 add_library( # Sets the name of the library.
         bassdiff-lib

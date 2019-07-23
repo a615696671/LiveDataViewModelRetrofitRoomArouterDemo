@@ -144,6 +144,9 @@ public class LocationService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mLocationClient.onDestroy();//销毁定位客户端。
+        if(mLocationClient!=null){
+            mLocationClient.onDestroy();//销毁定位客户端。
+        }
+
     }
 }

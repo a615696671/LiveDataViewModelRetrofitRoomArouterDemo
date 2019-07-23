@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -28,27 +29,22 @@ import com.tencent.bugly.Bugly;
 @Route(path = ArouterConstant.BassdiffTestActivity)
 public class BassdiffTestActivity extends AppCompatActivity {
 
-//    //旧版本
-//    String old =getSaveLocation() + "/oldApk.apk";
-//    //新版本
-//    String newp = getSaveLocation()+ "/newApk.apk";
-//    //差分包
-//    String patch =getSaveLocation() + "/patchApk.patch";
-//    //旧版apk和差分包合并生成的新版apk
-//    String tmp = getSaveLocation()  + "/plusNewApk.apk";
     //旧版本
-    String old =getSaveLocation() + "/old.txt";
+    String old =getSaveLocation() + "/oldApk.apk";
     //新版本
-    String newp = getSaveLocation()+ "/new.txt";
+    String newp = getSaveLocation()+ "/newApk.apk";
     //差分包
-    String patch =getSaveLocation() + "/patch.patch";
+    String patch =getSaveLocation() + "/patchApk.patch";
     //旧版apk和差分包合并生成的新版apk
-    String tmp = getSaveLocation()  + "/plusTxt.txt";
+    String tmp = getSaveLocation()  + "/plusNewApk.apk";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bassdiff_test);
+        Log.e("APKPATH",getSaveLocation());
         findViewById(R.id.btn2).setOnClickListener(view -> {
 
              //开始合并

@@ -27,6 +27,7 @@ Java_com_example_common_bassdiff_BassdiffUtils_diff(JNIEnv *env, jclass type, js
 //    strcpy(argv[3], (*env)->GetStringUTFChars(env, patch_, 0));
     LOGD("地址copy结束");
     bassdiff_main(4, argv);
+    LOGD("差分完成");
     (*env)->ReleaseStringUTFChars(env, oldpath_, argv[1]);
     (*env)->ReleaseStringUTFChars(env, newpath_, argv[2]);
     (*env)->ReleaseStringUTFChars(env, patch_, argv[3]);
@@ -45,6 +46,7 @@ Java_com_example_common_bassdiff_BassdiffUtils_patch(JNIEnv *env, jclass type, j
     argv[3] = (*env)->GetStringUTFChars(env, patch_, 0);
     LOGD("地址copy结束");
     bspatch_main(4, argv);
+    LOGD("合并完成");
     (*env)->ReleaseStringUTFChars(env, oldpath_, argv[1]);
     (*env)->ReleaseStringUTFChars(env, newpath_, argv[2]);
     (*env)->ReleaseStringUTFChars(env, patch_, argv[3]);

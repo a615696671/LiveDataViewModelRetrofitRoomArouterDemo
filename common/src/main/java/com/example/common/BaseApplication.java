@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.os.StrictMode;
-
 import androidx.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -17,10 +15,8 @@ import com.example.base.domain.executor.Executor;
 import com.example.base.domain.executor.impl.ThreadExecutor;
 import com.example.base.domain.interactors.base.AbstractInteractor;
 import com.example.base.domain.threading.MainThreadImpl;
-import com.example.base.utils.AppUtils;
 import com.example.base.widget.SmartRefreshLayoutDefaultSetting;
-import com.squareup.leakcanary.LeakCanary;
-import com.tencent.bugly.Bugly;
+
 
 
 public class BaseApplication extends Application{
