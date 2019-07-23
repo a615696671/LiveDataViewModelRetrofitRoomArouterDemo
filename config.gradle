@@ -57,7 +57,7 @@ ext{
           logginInterceptor: 'com.squareup.okhttp3:logging-interceptor:4.0.0',
           converterScalars: 'com.squareup.retrofit2:converter-scalars:2.6.0',
           //arouter
-          arouterApi :'com.alibaba:arouter-api:1.4.0',
+          arouterApi :'com.alibaba:arouter-api:1.5.0',
           //multidex
           multidex: 'androidx.multidex:multidex:2.0.1',
           //aspectjrt
