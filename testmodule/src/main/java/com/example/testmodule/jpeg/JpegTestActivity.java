@@ -47,7 +47,16 @@ public class JpegTestActivity extends AppCompatActivity {
         return Environment.getExternalStorageDirectory().getAbsolutePath();
     }
 public void compressNative(View view){
-     String result = getSaveLocation() + "/compress.png";
-     CompressUtil.compressBitmap(this.bitmap, qu, result);
+    ThreadExecutor.getInstance().execute(new AbstractInteractor(interactor -> {
+        interactor.execute()                    }, MainThreadImpl.getInstance()) {
+        @Override
+        public void run() {
+            //开始压缩
+            String result = getSaveLocation() + "/compress.png";
+            CompressUtil.compressBitmap(this.bitmap, qu, result);
+            mMainThread.post(() -> Toast.makeText(BassdiffTestActivity.this, "压缩成功!", Toast.LENGTH_SHORT).show());
+        }
+    });
+
 }
 }

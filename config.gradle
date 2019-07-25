@@ -25,7 +25,7 @@ ext{
     keyId=[
             app_name: "@string/app_name",
             app_icon: "@mipmap/app_icon",
-            ftpKey: "10.66.31.83-21-download-kdwms@18",
+            ftpKey: "ip-usernamename-password",
             bugly: "6d22aa302e",
             map: "ca1d419dde25a70cfbd20a1e666b1113"
     ]
