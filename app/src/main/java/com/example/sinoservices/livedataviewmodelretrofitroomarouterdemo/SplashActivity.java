@@ -34,12 +34,9 @@ public class SplashActivity extends CheckPermissionsActivity {
             public void run() {
                 try {
                     Thread.sleep(3000);
-                    mMainThread.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            ARouter.getInstance().build(ArouterConstant.MainActivity).navigation();
-                            finish();
-                        }
+                    mMainThread.post(() -> {
+                        ARouter.getInstance().build(ArouterConstant.MainActivity).navigation();
+                        finish();
                     });
                 } catch (InterruptedException e) {
                     e.printStackTrace();

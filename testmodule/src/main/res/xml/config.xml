@@ -4,12 +4,20 @@
         <param name="android-package" value="com.example.testmodule.cordova.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="MideaBarcode">
+        <param name="android-package" value="com.example.testmodule.cordova.MideaBarcode" />
+    </feature>
+
+    <feature name="MideaUser">
+        <param name="android-package" value="com.example.testmodule.cordova.MideaUser" />
+    </feature>
+
     <name>HelloCordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-    Apache Cordova Team
+
 </author>
     <!--使用assets file//android_asset/www/index.html-->
 <content src="index.html" />

@@ -63,7 +63,7 @@ ext{
           //aspectjrt
           aspectjrt:'org.aspectj:aspectjrt:1.9.4',
           //https://github.com/tbruyelle/RxPermissions
-          rxpermissions :'com.github.tbruyelle:rxpermissions:0.10.2',
+//          rxpermissions :'com.github.tbruyelle:rxpermissions:0.10.2',
           leakcanary: 'com.squareup.leakcanary:leakcanary-android:1.5.4',
           legacySupportV4: 'androidx.legacy:legacy-support-v4:1.0.0',
           BaseRecyclerViewAdapterHelper: 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45-androidx',

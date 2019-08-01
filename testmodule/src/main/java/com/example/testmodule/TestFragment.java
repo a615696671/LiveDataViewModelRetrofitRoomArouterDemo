@@ -2,6 +2,7 @@ package com.example.testmodule;
 
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,7 +26,6 @@ public class TestFragment extends BaseDataBindFragment<TestTestFragmentLayoutBin
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
          mView.findViewById(R.id.btn1).setOnClickListener(view1 -> ARouter.getInstance().build(ArouterConstant.CordovaMainActivity).navigation());
-        mView.findViewById(R.id.btn1).setOnClickListener(view1 -> ARouter.getInstance().build(ArouterConstant.CordovaMainActivity).navigation());
         mView.findViewById(R.id.btn).setOnClickListener(view12 -> ARouter.getInstance().build(ArouterConstant.TestActivity).navigation());
         mView.findViewById(R.id.btn2).setOnClickListener(view13 -> ARouter.getInstance().build(ArouterConstant.TestActivity3).navigation());
         mView.findViewById(R.id.btn3).setOnClickListener(view14 -> ARouter.getInstance().build(ArouterConstant.TestActivity2).navigation());
@@ -33,6 +33,7 @@ public class TestFragment extends BaseDataBindFragment<TestTestFragmentLayoutBin
         mView.findViewById(R.id.btn5).setOnClickListener(view16 -> ARouter.getInstance().build(ArouterConstant.BassdiffTestActivity).navigation());
         TextView tv = mView.findViewById(R.id.tv);
         tv.setText(AppUtils.getVersionCode(mContext)+"");
+
     }
 
     @Override

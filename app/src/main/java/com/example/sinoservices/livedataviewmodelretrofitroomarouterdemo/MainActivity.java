@@ -30,29 +30,26 @@ public class MainActivity extends BaseActivity  {
         mainViewModel = get(MainViewModel.class);
         currentFragmentIndex=0;
         mainViewModel.getFragment(ArouterConstant.TestFragment,0);
-        mainViewModel.getLoginMutableLiveData().observe(this, new Observer<Fragment>() {
-            @Override
-            public void onChanged(Fragment fragment) {
-                if (currentFragment != fragment) {
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    if (!fragment.isAdded()) {
-                        //先判断是否被add过
-                        if (currentFragment != null) {
-                            transaction.hide(currentFragment);
-                        }
-                        if (fragment != null) {
-                            transaction.add(R.id.main_content, fragment).commitAllowingStateLoss();
-                        }
-                    } else {
-                        if (currentFragment != null) {
-                            transaction.hide(currentFragment);
-                        }
-                        if (fragment != null) {
-                            transaction.show(fragment).commitAllowingStateLoss();
-                        }
+        mainViewModel.getLoginMutableLiveData().observe(this, fragment -> {
+            if (currentFragment != fragment) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                if (!fragment.isAdded()) {
+                    //先判断是否被add过
+                    if (currentFragment != null) {
+                        transaction.hide(currentFragment);
                     }
-                    currentFragment=fragment;
+                    if (fragment != null) {
+                        transaction.add(R.id.main_content, fragment).commitAllowingStateLoss();
+                    }
+                } else {
+                    if (currentFragment != null) {
+                        transaction.hide(currentFragment);
+                    }
+                    if (fragment != null) {
+                        transaction.show(fragment).commitAllowingStateLoss();
+                    }
                 }
+                currentFragment=fragment;
             }
         });
     }

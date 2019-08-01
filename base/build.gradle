@@ -57,7 +57,6 @@ dependencies {
     api rootProject.ext.dependencies.BaseRecyclerViewAdapterHelper
     api rootProject.ext.dependencies. legacySupportV4
     api rootProject.ext.dependencies.leakcanary
-    api rootProject.ext.dependencies.rxpermissions
     //aspectjrt
     api rootProject.ext.dependencies. aspectjrt
     api rootProject.ext.dependencies.multidex

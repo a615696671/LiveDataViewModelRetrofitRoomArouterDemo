@@ -1,7 +1,9 @@
-package com.example.common;
+package com.example.common.httpexpand;
 
 
 import com.example.base.utils.LogUtils;
+import com.example.common.BaseBean;
+import com.example.common.ContentValue;
 
 import java.lang.reflect.ParameterizedType;
 
@@ -24,26 +26,30 @@ public abstract class RetrofitCallback<M extends BaseBean> implements Callback<M
     private  String TAG="RetrofitCallback";
     @Override
     public void onResponse(Call<M> call, Response<M> response) {
-        if(response!=null&&response.body()!=null){
-            if(response.body().flag== ContentValue.FLAG_SUCCESS){
-                onSuccess(response.body());
-            }else {
-                M body = response.body();
-                onThrowable(body);
+            if(response!=null&&response.body()!=null){
+                if(response.body().flag== ContentValue.FLAG_SUCCESS){
+                    onSuccess(response.body());
+                }else {
+                    M body = response.body();
+                    onThrowable(body);
+                }
+            }else{
+                try {
+                    Class<M> mClass = (Class<M>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+                    M m = mClass.newInstance();
+                    m.flag= ContentValue.FLAG_FAILURE;
+                    if(response==null){
+                        m.msg=ContentValue.HttpMsgContentValue.HTTP_NO_ERROR;
+                    }else{
+                        m.httpStateCode=response.code();
+                    }
+                    onThrowable(m);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                }
             }
-        }else{
-            try {
-                Class<M> mClass = (Class<M>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-                M m = mClass.newInstance();
-                m.msg="please  check url!";
-                m.flag= ContentValue.FLAG_FAILURE;
-                onThrowable(m);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            }
-        }
     }
     @Override
     public void onFailure(Call<M> call, Throwable t) {

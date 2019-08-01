@@ -7,4 +7,11 @@ public class ContentValue {
     public  static final int FLAG_FAILURE=1;
     //存储定位信息的bean
     public static final  String  LOCATION_DATA="LocationServiceBean";
+
+
+
+
+ public   static class HttpMsgContentValue{
+        public  static final String HTTP_NO_ERROR="please  check url!";
+    }
 }

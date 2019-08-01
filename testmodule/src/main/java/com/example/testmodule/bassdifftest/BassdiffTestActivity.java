@@ -62,7 +62,7 @@ public class BassdiffTestActivity extends AppCompatActivity {
         findViewById(R.id.btn1).setOnClickListener(view -> {
 
                     ThreadExecutor.getInstance().execute(new AbstractInteractor(interactor -> {
-                        interactor.execute()                    }, MainThreadImpl.getInstance()) {
+                        interactor.execute();                    }, MainThreadImpl.getInstance()) {
                 @Override
                 public void run() {
                     //开始差分

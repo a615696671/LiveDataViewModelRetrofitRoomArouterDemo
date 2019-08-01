@@ -27,13 +27,10 @@ public class TestActivity3 extends BaseDataBindActivity<ActivityTest3Binding> {
         userEntity = new UserEntity();
         userEntity.setNickname("userEntity");
         dataBind.setUserEntity(userEntity);
-        findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ArouterCommonProvider arouterCommonProvider= (ArouterCommonProvider) ARouter.getInstance().build(ArouterConstant.ArouterCommonProviderImpl).navigation();
-                LocationServiceBean locationData = arouterCommonProvider.getLocationData();
-                ((Button)view).setText(locationData.toString());
-            }
+        findViewById(R.id.btn1).setOnClickListener(view -> {
+            ArouterCommonProvider arouterCommonProvider= (ArouterCommonProvider) ARouter.getInstance().build(ArouterConstant.ArouterCommonProviderImpl).navigation();
+            LocationServiceBean locationData = arouterCommonProvider.getLocationData();
+            ((Button)view).setText(locationData.toString());
         });
     }
 

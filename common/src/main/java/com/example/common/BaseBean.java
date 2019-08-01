@@ -7,4 +7,5 @@ public class BaseBean   extends BaseObservable{
     public String msg;
     public  int code;
     public  String  message;
+    public int httpStateCode;
 }

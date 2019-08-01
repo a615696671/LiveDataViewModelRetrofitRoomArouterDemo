@@ -2,128 +2,90 @@ package com.example.testmodule.livedata;
 
 
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
 import com.example.common.BaseBean;
 
 
-@Entity
-public class UserEntity  extends BaseBean {
-
+//entity声明定义，并且指定了映射数据表明
+@Entity(tableName = "UserEntity")
+public class UserEntity extends BaseBean {
+    //设置主键，并且定义自增增
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    /**
-     * user_id : 1000
-     * username : 盖伦
-     * password : 1314520
-     * sex : 0
-     * nickname : 德玛西亚之力
-     * phone : 15575818133
-     * token : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTAwMCwiZXhwIjoxNTU1NTU1NjU1fQ.SpKwXt_9be2UcSP3dXGj5zIBquwIsi5carEHtqAH9QQ
-     * role_id : 1
-     * leave : 1
-     */
-    private int user_id;
-    private String username;
-    private String password;
-    private int sex;
+    //字段映射具体的数据表字段名
+    @ColumnInfo(name = "uid")
+    private int uid;
+    //字段映射具体的数据表字段名
+    @ColumnInfo(name = "first_name")
+    private String firstName;
+    //字段映射具体的数据表字段名
+    @ColumnInfo(name = "last_name")
+    private String lastName;
+
+    //字段映射具体的数据表字段名
+    @ColumnInfo(name = "nick_name")
     private String nickname;
-    private String phone;
-    private String token;
-    private int role_id;
-    private int leave;
 
-    public int getUser_id() {
-        return user_id;
+
+    //必须指定一个构造方法，room框架需要。并且只能指定一个
+//，如果有其他构造方法，则其他的构造方法必须添加@Ignore注解
+    public UserEntity() {
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    //其他构造方法要添加@Ignore注解
+    @Ignore
+    public UserEntity(int uid) {
+        this.uid = uid;
     }
 
-    public String getUsername() {
-        return username;
+    //Setter、Getter方法是需要添加的，为了支持room工作
+    public int getUid() {
+        return uid;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
-    public String getPassword() {
-        return password;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public int getSex() {
-        return sex;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSex(int sex) {
-        this.sex = sex;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getNickname() {
         return nickname;
     }
+
     public void setNickname(String nickname) {
         this.nickname = nickname;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public int getRole_id() {
-        return role_id;
-    }
-
-    public void setRole_id(int role_id) {
-        this.role_id = role_id;
-    }
-
-    public int getLeave() {
-        return leave;
-    }
-
-    public void setLeave(int leave) {
-        this.leave = leave;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     @Override
     public String toString() {
         return "UserEntity{" +
-                "user_id=" + user_id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", sex=" + sex +
+                "uid=" + uid +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", nickname='" + nickname + '\'' +
-                ", phone='" + phone + '\'' +
-                ", token='" + token + '\'' +
-                ", role_id=" + role_id +
-                ", leave=" + leave +
+                ", flag=" + flag +
+                ", msg='" + msg + '\'' +
+                ", code=" + code +
+                ", message='" + message + '\'' +
+                ", httpStateCode=" + httpStateCode +
                 '}';
     }
 }

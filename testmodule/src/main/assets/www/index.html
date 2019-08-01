@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <script data-ionic="inject">
+    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.6.0';i.angular='4.1.3';i.staticDir='build/';})(window);
+  </script>
+    <meta charset="UTF-8">
+    <title>TMS</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!--<link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">-->
+    <!--<link rel="manifest" href="manifest.json">-->
+    <meta name="theme-color" content="#4e8ef7">
+
+    <!-- cordova.js required for cordova apps -->
+    <!--<script src="cordova.js"></script>-->
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.error('Error', err));
+      }
+    </script>-->
+    <link href="build/main.css" rel="stylesheet">
+    <style type="text/css">
+        .appSplash {
+            width: 100%;
+            height: 100%;
+            background: #e8e8e8;
+        }
+
+        .appSplash .container-loading {
+            width: 100%;
+            height: 120px;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            margin-top: -60px;
+        }
+
+        .appSplash .container-loading .text {
+            width: 100%;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+     <script>   document.write('<script type="text/javascript" src="./cordova.js"><\/script>');  </script>
+    <script>   document.write('<script type="text/javascript" src="./cordova_plugins.js"><\/script>');  </script>
+
+
+ <!--<script type="text/javascript">-->
+    <!--var u=navigator.userAgent;-->
+    <!--var isAndroid=u.indexOf('Android')>-1||u.indexOf('Adr')>-1;//anroid-->
+    <!--var isiOS=!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);//ios-->
+    <!--if(isAndroid){-->
+    <!--console.log("tagLoad",isAndroid);-->
+    <!--document.write('<script src="https://mobile.yutong.com:9682/hybrid/cordova_android.js"><\/script>');-->
+    <!--console.log("tagLoad",isAndroid+"end");-->
+    <!--}-->
+    <!--if(isiOS){-->
+    <!--console.log("tagLoad",isiOS);-->
+    <!--document.write('<script src="https://mobile.yutong.com:9682/hybrid/cordova_ios.js"><\/script>');-->
+    <!--console.log("tagLoad",isiOS+"end");-->
+    <!--if(document.documentElement.offsetWidth !=414){-->
+    <!--}-->
+    <!--}-->
+    <!--</script>-->
+</head>
+<body>
+<div class="appSplash">
+    <div class="container-loading">
+        <div class="text">loading……</div>
+    </div>
+</div>
+<!-- Ionic's root component and where the app will load -->
+<ion-app></ion-app>
+<!--<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css?v=1.0"/>-->
+<!--<script type="text/javascript"-->
+        <!--src='http://webapi.amap.com/maps?v=1.4.6&key=91ae2cbd1a96e6d0e26cbefb9414454b&plugin=AMap.TruckDriving'></script>-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SjrEp3ReB08UHA1l9rM7adXx5EpzpfUV"></script>
+<!-- The polyfills js is generated during the build process -->
+<script src="build/polyfills.js"></script>
+
+<!-- The vendor js is generated during the build process
+     It contains all of the dependencies in node_modules -->
+<script src="build/vendor.js"></script>
+
+<!-- The main bundle js is generated during the build process -->
+<script src="build/main.js"></script>
+
+<!--图片预览 swiper http://www.swiper.com.cn/api/index.html-->
+<link rel="stylesheet" href="./assets/lib/swiper/swiper-3.4.2.min.css">
+<script src="./assets/lib/swiper/swiper-3.4.2.min.js"></script>
+<script src="./assets/lib/dsbridge.js"></script>
+
+
+
+<!--<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>-->
+<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1OR0Q2Q3ZAMTMkh6LxNZETaVKXQPc8nm">
+  //v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"
+</script>-->
+<!--<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>-->
+</body>
+</html>
