@@ -1,10 +1,10 @@
-package com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo;
+package com.example.sinoservices.app;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import com.example.base.aac.BaseViewModel;
-import com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo.main.IMainFragment;
-import com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo.main.MainFragmentImpl;
+import com.example.sinoservices.app.main.IMainFragment;
+import com.example.sinoservices.app.main.MainFragmentImpl;
 
 public class MainViewModel extends BaseViewModel implements IMainFragment.CallBack {
 

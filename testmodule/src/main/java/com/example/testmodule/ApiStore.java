@@ -1,7 +1,7 @@
 package com.example.testmodule;
 
 
-import com.example.testmodule.livedata.UserEntity;
+import com.example.testmodule.room.UserEntity;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

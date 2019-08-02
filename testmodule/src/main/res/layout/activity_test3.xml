@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
         <data>
-            <import type="com.example.testmodule.livedata.UserEntity" alias="UserEntity" />
+            <import type="com.example.testmodule.room.UserEntity" alias="UserEntity" />
             <variable
                 name="userEntity"
-                type="UserEntity" />
+                type="com.example.testmodule.room.UserEntity" />
         </data>
 
  <LinearLayout

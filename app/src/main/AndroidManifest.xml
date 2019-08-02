@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo">
+    package="com.example.sinoservices.app">
 
     <application
         android:name="com.example.common.BaseApplication"
@@ -15,13 +15,13 @@
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory,label,icon,roundIcon"
         tools:targetApi="n">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name="com.example.sinoservices.app.MainActivity"></activity>
 
         <meta-data
             android:name="android.max_aspect"
             android:value="2.1" />
 
-        <activity android:name=".SplashActivity">
+        <activity android:name="com.example.sinoservices.app.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

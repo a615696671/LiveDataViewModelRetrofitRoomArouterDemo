@@ -1,7 +1,8 @@
-package com.example.testmodule.livedata;
+package com.example.testmodule.room;
 
 
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
@@ -14,10 +15,11 @@ import com.example.common.BaseBean;
 @Entity(tableName = "UserEntity")
 public class UserEntity extends BaseBean {
     //设置主键，并且定义自增增
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     //字段映射具体的数据表字段名
-    @ColumnInfo(name = "uid")
-    private int uid;
+    @ColumnInfo(name = "user_name")
+    @NonNull
+    private String userName;
     //字段映射具体的数据表字段名
     @ColumnInfo(name = "first_name")
     private String firstName;
@@ -31,23 +33,14 @@ public class UserEntity extends BaseBean {
 
 
     //必须指定一个构造方法，room框架需要。并且只能指定一个
-//，如果有其他构造方法，则其他的构造方法必须添加@Ignore注解
+   //，如果有其他构造方法，则其他的构造方法必须添加@Ignore注解
     public UserEntity() {
     }
 
     //其他构造方法要添加@Ignore注解
     @Ignore
-    public UserEntity(int uid) {
-        this.uid = uid;
-    }
-
-    //Setter、Getter方法是需要添加的，为了支持room工作
-    public int getUid() {
-        return uid;
-    }
-
-    public void setUid(int uid) {
-        this.uid = uid;
+    public UserEntity(String userName) {
+        this.userName = userName;
     }
 
     public String getFirstName() {
@@ -74,10 +67,18 @@ public class UserEntity extends BaseBean {
         this.nickname = nickname;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     @Override
     public String toString() {
         return "UserEntity{" +
-                "uid=" + uid +
+                "userName='" + userName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", nickname='" + nickname + '\'' +

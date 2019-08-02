@@ -13,7 +13,7 @@ import com.example.common.alibabaprovider.ArouterCommonProvider;
 import com.example.common.map.LocationServiceBean;
 import com.example.base.aac.BaseDataBindActivity;
 import com.example.testmodule.R;
-import com.example.testmodule.livedata.UserEntity;
+import com.example.testmodule.room.UserEntity;
 
 
 @Route(path = ArouterConstant.TestActivity3)

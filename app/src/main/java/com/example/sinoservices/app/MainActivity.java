@@ -1,10 +1,9 @@
-package com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo;
+package com.example.sinoservices.app;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 

@@ -1,4 +1,4 @@
-package com.example.testmodule.livedata;
+package com.example.testmodule.room;
 
 import android.content.Context;
 
@@ -16,12 +16,10 @@ public abstract class UserDataBases  extends RoomDatabase {
 
     private static volatile  UserDataBases dataBases;
 
-    private static final String DATA_TABLE_NAME="user.db";
+    private static final String DATA_TABLE_NAME="user";
 
     private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
     public abstract UserDao userDao();
-
-
     public static UserDataBases getInstance(){
         if (dataBases==null){
             synchronized (UserDataBases.class){

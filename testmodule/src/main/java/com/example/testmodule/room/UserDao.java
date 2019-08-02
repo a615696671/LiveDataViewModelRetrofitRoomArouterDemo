@@ -1,8 +1,7 @@
-package com.example.testmodule.livedata;
+package com.example.testmodule.room;
 
 import java.util.List;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,29 +13,24 @@ import androidx.room.Update;
 @Dao
 public interface UserDao {
     //所有的CURD根据primary key进行匹配
-//------------------------query------------------------
-//简单sql语句，查询user表所有的column
+    //------------------------query------------------------
+   //简单sql语句，查询user表所有的column
     @Query("SELECT * FROM UserEntity")
     List<UserEntity> getAll();
 
     //根据条件查询，方法参数和注解的sql语句参数一一对应
-    @Query("SELECT * FROM UserEntity WHERE uid IN (:userIds)")
-    List<UserEntity> loadAllByIds(int[] userIds);
+    @Query("SELECT * FROM UserEntity WHERE user_name IN (:userName)")
+    List<UserEntity> loadAllByUserName(int[] userName);
 
     //同上
-    @Query("SELECT * FROM UserEntity WHERE first_name LIKE :first AND "
-            + "last_name LIKE :last LIMIT 1")
-    UserEntity findByName(String first, String last);
+    @Query("SELECT * FROM UserEntity WHERE user_name = :username")
+    UserEntity findByUserName(String username);
 
-    //同上
-    @Query("SELECT * FROM UserEntity WHERE uid = :uid")
-    UserEntity findByUid(int uid);
+   //-----------------------insert----------------------
 
-//-----------------------insert----------------------
-
-    // OnConflictStrategy.REPLACE表示如果已经有数据，那么就覆盖掉
-//数据的判断通过主键进行匹配，也就是uid，非整个user对象
-//返回Long数据表示，插入条目的主键值（uid）
+   // OnConflictStrategy.REPLACE表示如果已经有数据，那么就覆盖掉
+   //数据的判断通过主键进行匹配，也就是uid，非整个user对象
+   //返回Long数据表示，插入条目的主键值（uid）
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     Long insert(UserEntity user);
     //返回List<Long>数据表示被插入数据的主键uid列表
@@ -47,9 +41,9 @@ public interface UserDao {
     List<Long> insertAll(List<UserEntity> users);
 
     //---------------------update------------------------
-//更新已有数据，根据主键（uid）匹配，而非整个user对象
-//返回类型int代表更新的条目数目，而非主键uid的值。
-//表示更新了多少条目
+   //更新已有数据，根据主键（uid）匹配，而非整个user对象
+   //返回类型int代表更新的条目数目，而非主键uid的值。
+   //表示更新了多少条目
     @Update()
     int update(UserEntity user);
     //同上
@@ -60,8 +54,8 @@ public interface UserDao {
     int updateAll(List<UserEntity> user);
 
     //-------------------delete-------------------
-//删除user数据，数据的匹配通过主键uid实现。
-//返回int数据表示删除了多少条。非主键uid值。
+   //删除user数据，数据的匹配通过主键uid实现。
+   //返回int数据表示删除了多少条。非主键uid值。
     @Delete
     int delete(UserEntity user);
     //同上

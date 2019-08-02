@@ -1,4 +1,4 @@
-package com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo;
+package com.example.sinoservices.app;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package com.example.sinoservices.livedataviewmodelretrofitroomarouterdemo.main;
+package com.example.sinoservices.app.main;
 
 import androidx.fragment.app.Fragment;
 

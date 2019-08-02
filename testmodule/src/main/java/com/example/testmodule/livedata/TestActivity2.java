@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,9 @@ import com.example.common.ObserverLiveData;
 import com.example.common.ArouterConstant;
 import com.example.base.aac.BaseActivity;
 import com.example.testmodule.R;
+import com.example.testmodule.room.DaoActionResultListener;
+import com.example.testmodule.room.DaoUtils;
+import com.example.testmodule.room.UserEntity;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.List;
@@ -36,18 +40,9 @@ public class TestActivity2 extends BaseActivity {
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRecyclerView = findViewById(R.id.mRecyclerView);
         tvRoom = findViewById(R.id.tvRoom);
-        tvRoom.setOnClickListener(view -> ThreadExecutor.getInstance().execute(new AbstractInteractor(interactor -> {
-            interactor.execute();
-        }, MainThreadImpl.getInstance()) {
-            @Override
-            public void run() {
-                UserDao userDao = UserDataBases.getInstance().userDao();
-                List<UserEntity> entities   = userDao.getAll();
-                 mMainThread.post(() -> {
-                     if(entities!=null){
-                         tvRoom.setText(entities.toString());
-                     }
-                 });
+        tvRoom.setOnClickListener((View view) -> DaoUtils.getAll(resultList -> {
+            if(resultList!=null&&resultList.size()>0){
+                tvRoom.setText(resultList.toString());
             }
         }));
         loginViewModel = get(LoginViewModel.class);
