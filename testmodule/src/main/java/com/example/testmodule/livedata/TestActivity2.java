@@ -42,9 +42,6 @@ public class TestActivity2 extends BaseActivity {
             @Override
             public void run() {
                 UserDao userDao = UserDataBases.getInstance().userDao();
-                UserEntity userEntity = new UserEntity();
-                userEntity.setNickname("nickName");
-                userDao.insert(userEntity);
                 List<UserEntity> entities   = userDao.getAll();
                  mMainThread.post(() -> {
                      if(entities!=null){

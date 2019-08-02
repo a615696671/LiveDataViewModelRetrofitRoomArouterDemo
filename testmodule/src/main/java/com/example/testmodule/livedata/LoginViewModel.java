@@ -25,7 +25,6 @@ public class LoginViewModel extends BaseViewModel {
                     public void run() {
                         UserDao userDao = UserDataBases.getInstance().userDao();
                         //登陆数据子线程插入
-                        model.setUid(0);
                         if(userDao.findByUid(0)!=null){
                             userDao.update(model);
                         }else{
