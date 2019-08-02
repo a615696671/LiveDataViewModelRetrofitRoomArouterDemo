@@ -45,7 +45,6 @@ dependencies {
     api rootProject.ext.dependencies.roomRuntime
     annotationProcessor rootProject.ext.dependencies.roomCompiler
     androidTestImplementation rootProject.ext.dependencies.roomTesting
-
     //SmartRefreshLayout
     api  rootProject.ext.dependencies.SmartRefreshLayout
     api  rootProject.ext.dependencies.SmartRefreshHeader

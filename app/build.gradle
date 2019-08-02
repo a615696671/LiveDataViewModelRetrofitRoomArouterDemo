@@ -119,4 +119,6 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies.arouterCompiler
     implementation rootProject.ext.dependencies.appcompat
     api project(':testmodule')
+
+
 }

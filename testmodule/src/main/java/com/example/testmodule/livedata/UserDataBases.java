@@ -11,13 +11,12 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.common.BaseApplication;
-
 @Database(entities = {UserEntity.class}, version = 1)
 public abstract class UserDataBases  extends RoomDatabase {
 
     private static volatile  UserDataBases dataBases;
 
-    private static final String DATA_TABLE_NAME="userdb";
+    private static final String DATA_TABLE_NAME="user.db";
 
     private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
     public abstract UserDao userDao();
@@ -28,7 +27,7 @@ public abstract class UserDataBases  extends RoomDatabase {
             synchronized (UserDataBases.class){
                 if (dataBases==null){
                     dataBases=buildDatabase(BaseApplication.getContext());
-                    dataBases.updateDatabaseCreated(BaseApplication.getContext().getApplicationContext());
+                    dataBases.updateDatabaseCreated(BaseApplication.getContext());
                 }
             }
         }
@@ -46,7 +45,6 @@ public abstract class UserDataBases  extends RoomDatabase {
                     @Override
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {
                         super.onCreate(db);
-
                     }
                 })
                 .build();

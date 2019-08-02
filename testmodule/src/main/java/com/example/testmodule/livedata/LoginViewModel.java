@@ -20,18 +20,18 @@ public class LoginViewModel extends BaseViewModel {
             public void onSuccess(final UserEntity model) {
                 ThreadExecutor.getInstance().execute(new AbstractInteractor(interactor -> {
                     interactor.execute();
-                    UserDao userDao = UserDataBases.getInstance().userDao();
-                    //登陆数据子线程插入
-                     model.setUid(0);
-                     if(userDao.findByUid(0)!=null){
-                         userDao.update(model);
-                     }else{
-                         userDao.insert(model);
-                     }
                 }, MainThreadImpl.getInstance()) {
                     @Override
                     public void run() {
-                        getLoginMutableLiveData().setValue(model);
+                        UserDao userDao = UserDataBases.getInstance().userDao();
+                        //登陆数据子线程插入
+                        model.setUid(0);
+                        if(userDao.findByUid(0)!=null){
+                            userDao.update(model);
+                        }else{
+                            userDao.insert(model);
+                        }
+                        mMainThread.post(() -> getLoginMutableLiveData().setValue(model));
                     }
                 });
             }

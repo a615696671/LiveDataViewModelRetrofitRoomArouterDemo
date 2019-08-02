@@ -47,6 +47,7 @@ ext{
           roomRuntime :'androidx.room:room-runtime:2.1.0',
           roomCompiler :'androidx.room:room-compiler:2.1.0',
           roomTesting :  'androidx.room:room-testing:2.1.0',
+
           //retrofit
           retrofit: 'com.squareup.retrofit2:retrofit:2.6.0',
           converterGson: 'com.squareup.retrofit2:converter-gson:2.6.0',
