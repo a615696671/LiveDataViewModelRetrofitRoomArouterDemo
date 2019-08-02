@@ -20,7 +20,7 @@
 
 </author>
     <!--使用assets file//android_asset/www/index.html-->
-<content src="index.html" />
+<content src="https://credityou.co/" />
 <access origin="*" />
 <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
