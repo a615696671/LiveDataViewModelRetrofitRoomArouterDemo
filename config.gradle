@@ -40,6 +40,8 @@ ext{
           constraintlayout:'androidx.constraintlayout:constraintlayout:2.0.0-beta2',
           //腾讯bugly
           crashreport_upgrade: 'com.tencent.bugly:crashreport_upgrade:latest.release',//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
+          tinker:   'com.tencent.tinker:tinker-android-lib:latest.release',
+          nativecrashreport:'com.tencent.bugly:nativecrashreport:latest.release',
            //liveData
           lifecycleExtensions:'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01',
           lifecycleViewmodel: 'androidx.lifecycle:lifecycle-viewmodel:2.2.0-alpha01',
@@ -69,6 +71,7 @@ ext{
           BaseRecyclerViewAdapterHelper: 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45-androidx',
           glide: 'com.github.bumptech.glide:glide:4.9.0',
           glideCompiler:  'com.github.bumptech.glide:compiler:4.9.0',
+          glideIntegration:"com.github.bumptech.glide:okhttp3-integration:4.9.0",
           SmartRefreshLayout:'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-11',
           SmartRefreshHeader:'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-11',
           mapIntegration : 'com.amap.api:navi-3dmap:latest.integration',

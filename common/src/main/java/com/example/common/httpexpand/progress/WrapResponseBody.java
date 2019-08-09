@@ -39,12 +39,9 @@ public class WrapResponseBody extends ResponseBody {
         //gzip压缩格式会返回-1，目前处理是在请求头信息指定("Accept-Encoding","identity")表示不压缩
         if (contentLength == -1) {
             mDoProgress = false;
-            mHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    //切换线程，进行失败回调
-                    mListener.onDownLoadGetContentLengthFail(mInfo);
-                }
+            mHandler.post(() -> {
+                //切换线程，进行失败回调
+                mListener.onDownLoadGetContentLengthFail(mInfo);
             });
         } else {
             mDoProgress = true;

@@ -1,6 +1,6 @@
 package com.example.common;
 
-import android.app.Application;
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -9,25 +9,38 @@ import android.os.IBinder;
 import androidx.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.base.utils.AppUtils;
 import com.example.common.map.LocationService;
 import com.example.base.ActivityLifeCallBack;
-import com.example.base.domain.executor.Executor;
 import com.example.base.domain.executor.impl.ThreadExecutor;
 import com.example.base.domain.interactors.base.AbstractInteractor;
 import com.example.base.domain.threading.MainThreadImpl;
 import com.example.base.widget.SmartRefreshLayoutDefaultSetting;
+import com.tencent.bugly.Bugly;
+import com.tencent.bugly.beta.Beta;
+import com.tencent.tinker.loader.app.TinkerApplication;
+import com.tencent.tinker.loader.shareutil.ShareConstants;
 
 
-
-public class BaseApplication extends Application{
+public class BaseApplication  extends TinkerApplication  {
     private static  boolean isDebug=true;
     private static Context  context;
     private LocationService locationService;
+
+    protected BaseApplication() {
+        super(ShareConstants.TINKER_ENABLE_ALL, "com.example.common.BaseApplication",
+                "com.tencent.tinker.loader.TinkerLoader", false);
+    }
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         context=this;
         MultiDex.install(this);
+        // 安装tinker
+        // TinkerManager.installTinker(this); 替换成下面Bugly提供的方法
+        Beta.installTinker(this);
+
     }
 
     public static Context getContext() {
@@ -37,12 +50,7 @@ public class BaseApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        ThreadExecutor.getInstance().execute(new AbstractInteractor(new Executor() {
-            @Override
-            public void execute(AbstractInteractor interactor) {
-                interactor.execute();
-            }
-        }, MainThreadImpl.getInstance()) {
+        ThreadExecutor.getInstance().execute(new AbstractInteractor(interactor -> interactor.execute(), MainThreadImpl.getInstance()) {
             @Override
             public void run() {
                 SmartRefreshLayoutDefaultSetting.refreshLayoutDefaultSettingInit();
@@ -65,8 +73,8 @@ public class BaseApplication extends Application{
 //                            .build());
                 }
                 ARouter.init(BaseApplication.this); // 尽可能早，推荐在Application中初始化
-//                String bugly =  AppUtils.getMetaDataApplication(context,"bugly");
-//                Bugly.init(getApplicationContext(),bugly ,isDebug);
+                String bugly =  AppUtils.getMetaDataApplication(context,"bugly");
+                Bugly.init(getApplicationContext(),bugly ,isDebug);
                 bindService(new Intent(getContext(), BaseApplication.class), serviceConnection, Context.BIND_AUTO_CREATE);
                 startService(new Intent(getContext(), LocationService.class));//开启定位服务
             }

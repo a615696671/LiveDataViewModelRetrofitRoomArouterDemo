@@ -4,6 +4,8 @@ apply plugin: 'com.alibaba.arouter'
 apply plugin: 'android-aspectjx'
 ////注：需要配置符号表时，使用bugly插件
 apply plugin: 'bugly'
+// 依赖插件脚本
+apply from: 'tinker-support.gradle'
 android {
     dexOptions {
         javaMaxHeapSize rootProject.ext.android.javaMaxHeapSize
@@ -36,7 +38,7 @@ android {
     android.applicationVariants.all {
         variant ->
             variant.outputs.all {
-                outputFileName = "${rootProject.ext.android.apkname}_v${variant.versionName}.apk"
+                outputFileName = "v${variant.versionName}_code${variant.versionName}"
             }
     }
     signingConfigs {

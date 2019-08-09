@@ -57,6 +57,8 @@ dependencies {
     api rootProject.ext.dependencies.location
     //腾讯bugly
     api rootProject.ext.dependencies.crashreport_upgrade
+    api  rootProject.ext.dependencies.tinker
+    api rootProject.ext.dependencies.nativecrashreport
     api project(':base')
     api project(':CordovaLib')
 }

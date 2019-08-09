@@ -51,7 +51,7 @@ dependencies {
     //glide
     api rootProject.ext.dependencies.glide
     annotationProcessor rootProject.ext.dependencies.glideCompiler
-
+    api  rootProject.ext.dependencies.glideIntegration
     //BaseRecyclerViewAdapterHelper
     api rootProject.ext.dependencies.BaseRecyclerViewAdapterHelper
     api rootProject.ext.dependencies. legacySupportV4
@@ -73,5 +73,6 @@ dependencies {
     api rootProject.ext.dependencies.converterGson
     api  rootProject.ext.dependencies.gson
     api files('libs/commons-net-3.6.jar')
+
 
 }
