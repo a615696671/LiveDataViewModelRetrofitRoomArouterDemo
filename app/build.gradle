@@ -38,7 +38,7 @@ android {
     android.applicationVariants.all {
         variant ->
             variant.outputs.all {
-                outputFileName = "v${variant.versionName}_code${variant.versionName}"
+                outputFileName = "app-release.apk"
             }
     }
     signingConfigs {
@@ -74,7 +74,6 @@ android {
 
     productFlavors {
         //开发环境
-
         develop {
             buildConfigField "int", "ENV_TYPE", "0"
             applicationId rootProject.ext.android.applicationIdDevelop

@@ -2,8 +2,8 @@ ext{
 
         android=[
             apkname:"测试工具",
-            versionCode:1,
-            versionName :"1.0",
+            versionCode:2,
+            versionName :"1.0.2",
             multiDexEnabled:true,
             buildToolsVersion:'27.0.3',
             testInstrumentationRunner:"androidx.test.runner.AndroidJUnitRunner",
@@ -41,7 +41,6 @@ ext{
           //腾讯bugly
           crashreport_upgrade: 'com.tencent.bugly:crashreport_upgrade:latest.release',//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
           tinker:   'com.tencent.tinker:tinker-android-lib:latest.release',
-          nativecrashreport:'com.tencent.bugly:nativecrashreport:latest.release',
            //liveData
           lifecycleExtensions:'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01',
           lifecycleViewmodel: 'androidx.lifecycle:lifecycle-viewmodel:2.2.0-alpha01',
