@@ -62,9 +62,9 @@ public class TestActivity2 extends BaseActivity {
                 Toast.makeText(TestActivity2.this, throwable.message, Toast.LENGTH_SHORT).show();
             }
         });
-        ImageView iv = findViewById(R.id.iv);
-        ImageUtils.loadImage(mContext, iv,
-                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565927064&di=6e34626b576c75158d756c1ad86d5c6e&imgtype=jpg&er=1&src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2Fc934d5bba91360044978d1645e0282c4595d2d57.jpg");
+//        ImageView iv = findViewById(R.id.iv);
+//        ImageUtils.loadImage(mContext, iv,
+//                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565927064&di=6e34626b576c75158d756c1ad86d5c6e&imgtype=jpg&er=1&src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2Fc934d5bba91360044978d1645e0282c4595d2d57.jpg");
     }
 
     @Override
