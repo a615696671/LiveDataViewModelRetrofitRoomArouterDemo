@@ -6,6 +6,7 @@ apply plugin: 'android-aspectjx'
 apply plugin: 'bugly'
 // 依赖插件脚本
 apply from: 'tinker-support.gradle'
+def apkProductFlavors ;
 android {
     dexOptions {
         javaMaxHeapSize rootProject.ext.android.javaMaxHeapSize
@@ -38,7 +39,7 @@ android {
     android.applicationVariants.all {
         variant ->
             variant.outputs.all {
-                outputFileName = "app-release.apk"
+                outputFileName = "app-${apkProductFlavors}-release.apk"
             }
     }
     signingConfigs {
@@ -75,6 +76,7 @@ android {
     productFlavors {
         //开发环境
         develop {
+            apkProductFlavors="develop"
             buildConfigField "int", "ENV_TYPE", "0"
             applicationId rootProject.ext.android.applicationIdDevelop
             manifestPlaceholders = [

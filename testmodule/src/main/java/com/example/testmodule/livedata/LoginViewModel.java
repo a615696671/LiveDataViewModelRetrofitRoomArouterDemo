@@ -18,7 +18,8 @@ public class LoginViewModel extends BaseViewModel {
         RetrofitHelper.getService(ApiStore.class).login(name,password).enqueue(new RetrofitCallback<UserEntity>() {
             @Override
             public void onSuccess(final UserEntity model) {
-                DaoUtils.insertEntity(model, () -> getLoginMutableLiveData().setValue(model));
+
+                    DaoUtils.insertEntity(model, () ->getLoginMutableLiveData().setValue(model));
             }
             @Override
             public void onThrowable(UserEntity throwable) {
